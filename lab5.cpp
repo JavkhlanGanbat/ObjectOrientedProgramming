@@ -33,7 +33,7 @@ public:
         strcpy(position, "Employee");
     }
 
-    // Parameterized constructor
+    // Parametertei constructor
     Employee(int i, const char* n, const char* pos, float hours) {
         id = i;
         workHours = hours;
@@ -138,7 +138,7 @@ public:
     void setWorkHours(float hours) { workHours = hours; }
 };
 
-// Compare functions for sorting
+// Haritsuulah functsuud
 int cmpEmpByName(const Employee& A, const Employee& B) {
     return strcmp(A.getName(), B.getName());
 }
@@ -210,7 +210,7 @@ int main() {
                 break;
             }
             case 3: {
-                // Sort by name
+                // Objectiig nereer erembeleh
                 for (i = 0; i < numOfEmployees - 1; i++) {
                     for (int j = i + 1; j < numOfEmployees; j++) {
                         if (cmpEmpByName(*emps[i], *emps[j]) > 0) {
@@ -221,13 +221,17 @@ int main() {
                     }
                 }
                 cout << "Nereer erembellee." << endl;
+                    for (i = 0; i < numOfEmployees; i++) {
+                    emps[i]->print();
+                    cout << "\n";
+                }
                 break;
             }
             case 4: {
-                // Sort pointers by name
+                // Pointeriig haygaar ni erembeleh
                 for (i = 0; i < numOfEmployees - 1; i++) {
                     for (int j = i + 1; j < numOfEmployees; j++) {
-                        if (strcmp(emps[i]->getName(), emps[j]->getName()) > 0) {
+                        if (emps[i] > emps[j]) {
                             Employee* temp = emps[i];
                             emps[i] = emps[j];
                             emps[j] = temp;
@@ -235,10 +239,14 @@ int main() {
                     }
                 }
                 cout << "Haygaar erembellee." << endl;
-                break;
+                for (i = 0; i < numOfEmployees; i++) {
+                    cout << "\nAddress: " << emps[i] << endl;
+                    emps[i]->print();
+    }
+    break;
             }
             case 5: {
-                // Sort by salary (descending order)
+                // Tsalingaar erembeleh
                 for (i = 0; i < numOfEmployees - 1; i++) {
                     for (int j = i + 1; j < numOfEmployees; j++) {
                         if (cmpEmpBySalary(*emps[i], *emps[j]) > 0) {
@@ -249,7 +257,7 @@ int main() {
                     }
                 }
                 cout << "Tsalingaar erembellee." << endl;
-                // Print sorted results
+                // Erembelsen objectuudiig heveleh functs
                 for (i = 0; i < numOfEmployees; i++) {
                     cout << "\nRank #" << (i + 1) << endl;
                     emps[i]->print();
