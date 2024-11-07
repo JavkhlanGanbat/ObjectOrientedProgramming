@@ -20,6 +20,7 @@ int main() {
 
         switch (action) {
             case 1: {
+                start:
                 cout << "ID: "; 
                 cin >> id;
                 
@@ -28,7 +29,7 @@ int main() {
                     if (emps[i]->getID() == id) {
                         idExists = true;
                         cout << "Ene ID-tai ajilchin burtgeltei baina!" << endl;
-                        break;
+                        goto start;
                     }
                 }
                 
