@@ -43,7 +43,7 @@ int main() {
                 continue;
             case 0:
                 running = false;
-                break;
+                break;  
             default:
                 std::cout << "Try again." << std::endl;
                 continue;
