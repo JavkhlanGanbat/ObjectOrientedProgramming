@@ -36,7 +36,7 @@ int main() {
                 break;
             }
             case 4:
-                std::cout << "Printing all created objects:\n";
+                std::cout << "Printing all objects:\n";
                 for (Shape* shape : shapes) {
                     shape->print();
                 }
@@ -45,7 +45,7 @@ int main() {
                 running = false;
                 break;
             default:
-                std::cout << "Invalid choice. Try again." << std::endl;
+                std::cout << "Try again." << std::endl;
                 continue;
         }
 
