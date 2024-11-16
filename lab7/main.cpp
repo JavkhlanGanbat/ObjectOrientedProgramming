@@ -7,7 +7,7 @@ int main() {
     bool running = true;
 
     while (running) {
-        std::cout << "\nChoose a shape to create (1 = Circle, 2 = Square, 3 = Triangle, 4 = Print objects, 5 = Sort objects by area, 0 = Exit): ";
+        std::cout << "\nChoose a shape to create (1 = Circle\n 2 = Square\n 3 = Triangle\n 4 = Print objects\n 5 = Sort objects by area\n 0 = Exit\n): ";
         int choice;
         std::cin >> choice;
 
