@@ -16,7 +16,7 @@ class Shape {
         virtual double getArea() = 0;
 };
  
-class TwoDimensionalShape : virtual public Shape{ 
+class TwoDShape : virtual public Shape{ 
     protected: 
         double x; 
         double y; 
@@ -28,12 +28,12 @@ class TwoDimensionalShape : virtual public Shape{
         void setSideLength(double sideLength); 
         void setX(double x); 
         void setY(double y); 
-        TwoDimensionalShape(double x=0, double y=0, double sideLength=0,const 
+        TwoDShape(double x=0, double y=0, double sideLength=0,const 
 char* name="EMPTY"); 
         virtual double getArea() = 0; 
 }; 
  
-class Circle : public TwoDimensionalShape{ 
+class Circle : public TwoDShape{ 
     private: 
         double getPerimeter() override; 
     public: 
@@ -49,7 +49,7 @@ class Circle : public TwoDimensionalShape{
         const char* getShapeName(); 
 }; 
  
-class Square : public TwoDimensionalShape { 
+class Square : public TwoDShape { 
 public: 
     Square(double x=0, double y=0, double sideLength=0); 
     double getSideLength(); 
@@ -77,7 +77,7 @@ public:
     void setBottomRightY(double y); 
 }; 
  
-class Triangle : public TwoDimensionalShape { 
+class Triangle : public TwoDShape { 
 public: 
     Triangle(double x=0, double y=0, double sideLength=0); 
     double getSideLength(); 
@@ -127,7 +127,7 @@ void Shape::setName(const char* name){
 } 
  
 //2d shape
-TwoDimensionalShape::TwoDimensionalShape(double x, double y, double sideLength, 
+TwoDShape::TwoDShape(double x, double y, double sideLength, 
 const char* name): Shape(name){ 
     setX(x); 
     setY(y); 
@@ -135,38 +135,38 @@ const char* name): Shape(name){
 } 
  
 //returns length of the side 
-double TwoDimensionalShape::getSideLength(){ 
+double TwoDShape::getSideLength(){ 
     return this->sideLength; 
 } 
  
 //returns X 
-double TwoDimensionalShape::getX(){ 
+double TwoDShape::getX(){ 
     return this->x; 
 } 
  
 //returns Y 
-double TwoDimensionalShape::getY(){ 
+double TwoDShape::getY(){ 
     return this->y; 
 } 
  
 //sets side length 
-void TwoDimensionalShape::setSideLength(double sideLength){ 
+void TwoDShape::setSideLength(double sideLength){ 
     this->sideLength=sideLength; 
 } 
  
 //sets X 
-void TwoDimensionalShape::setX(double x){ 
+void TwoDShape::setX(double x){ 
     this->x=x; 
 } 
  
 //sets Y 
-void TwoDimensionalShape::setY(double y){ 
+void TwoDShape::setY(double y){ 
     this->y=y; 
 } 
  
 //Circle 
 Circle::Circle(double x, double y, double radius): 
-TwoDimensionalShape(x,y,radius), Shape("Circle"){ 
+TwoDShape(x,y,radius), Shape("Circle"){ 
      
 } 
  
@@ -203,7 +203,7 @@ double Circle::getCenterY(){
  
 //Square 
 Square::Square(double x, double y, double sideLength) : 
-TwoDimensionalShape(x,y,sideLength), Shape("Square"){ 
+TwoDShape(x,y,sideLength), Shape("Square"){ 
 } 
  
 double Square::getSideLength() { 
@@ -297,7 +297,7 @@ void Square::setBottomRightY(double y){
 //Perfect Triangle 
  
 Triangle::Triangle(double x, double y, double sideLength) : 
-TwoDimensionalShape(x,y,sideLength), Shape("Perfect Triangle"){ 
+TwoDShape(x,y,sideLength), Shape("Perfect Triangle"){ 
 } 
  
 double Triangle::getSideLength() { 
