@@ -1,179 +1,377 @@
-#include <cstring>
-#include <cmath>
-#include <iostream>
+#include <math.h> 
+#include <cstring> 
+using namespace std; 
 
 class Shape {
-protected:
-    double x, y, sideLength;
-    char* name;
-
-public:
-    Shape(double x = 0, double y = 0, double sideLength = 0, const char* name = "");
-    Shape(const Shape& other);
-    Shape& operator=(const Shape& other);
-    virtual ~Shape();
-
-    virtual double getArea() const = 0;
-    
-    double getSideLength() const;
-    double getX() const;
-    double getY() const;
-    void setSideLength(double sideLength);
-    void setX(double x);
-    void setY(double y);
-    void setName(const char* name);
-    const char* getName() const;
-    
-    virtual void print() const;
+    protected:
+        char* name;
+    public:
+        Shape(const char* name = "");
+        virtual ~Shape();
+        void setName(const char* name);
+        const char* getName();
+        virtual double getPerimeter() = 0;
+        virtual double getArea() = 0;
 };
-
-class TwoDimensionalShape : public Shape {
-protected:
-    int numOfSides;
-
-public:
-    TwoDimensionalShape(double x = 0, double y = 0, double sideLength = 0, const char* name = "twodshape", int numOfSides = 1);
-    virtual ~TwoDimensionalShape();
-    
-    int getNumOfSides() const;
-    void setNumOfSides(int numOfSides);
-    void print() const override;
+ 
+class TwoDimensionalShape : virtual public Shape{ 
+    protected: 
+        double x; 
+        double y; 
+        double sideLength; 
+    public: 
+        double getSideLength(); 
+        double getX(); 
+        double getY(); 
+        void setSideLength(double sideLength); 
+        void setX(double x); 
+        void setY(double y); 
+        TwoDimensionalShape(double x=0, double y=0, double sideLength=0,const 
+char* name="EMPTY"); 
+        virtual double getArea() = 0; 
+}; 
+ 
+class Circle : public TwoDimensionalShape{ 
+    private: 
+        double getPerimeter() override; 
+    public: 
+        Circle(double x=0, double y=0, double radius=0); 
+        double getRadius(); 
+        void setRadius(double radius); 
+        void setCenterX(double x); 
+        void setCenterY(double y); 
+        double getCenterX(); 
+        double getCenterY(); 
+        double getCircumference(); 
+        double getArea() override; 
+        const char* getShapeName(); 
+}; 
+ 
+class Square : public TwoDimensionalShape { 
+public: 
+    Square(double x=0, double y=0, double sideLength=0); 
+    double getSideLength(); 
+    void setSideLength(double sideLength); 
+    double getArea() override; 
+    double getPerimeter() override; 
+    const char* getShapeName(); 
+ 
+    double getTopLeftX(); 
+    double getTopLeftY(); 
+    double getTopRightX(); 
+    double getTopRightY(); 
+    double getBottomLeftX(); 
+    double getBottomLeftY(); 
+    double getBottomRightX(); 
+    double getBottomRightY(); 
+ 
+    void setTopLeftX(double x); 
+    void setTopLeftY(double y); 
+    void setTopRightX(double x); 
+    void setTopRightY(double y); 
+    void setBottomLeftX(double x); 
+    void setBottomLeftY(double y); 
+    void setBottomRightX(double x); 
+    void setBottomRightY(double y); 
+}; 
+ 
+class Triangle : public TwoDimensionalShape { 
+public: 
+    Triangle(double x=0, double y=0, double sideLength=0); 
+    double getSideLength(); 
+    void setSideLength(double sideLength); 
+    double getArea() override; 
+    double getPerimeter() override; 
+    const char* getShapeName(); 
+ 
+    double getTopX(); 
+    double getTopY(); 
+    double getBottomLeftX(); 
+    double getBottomLeftY(); 
+    double getBottomRightX(); 
+    double getBottomRightY(); 
+ 
+    void setTopX(double x); 
+    void setTopY(double y); 
+    void setBottomLeftX(double x); 
+    void setBottomLeftY(double y); 
+    void setBottomRightX(double x); 
+    void setBottomRightY(double y); 
+ 
+private: 
+    double calculateHeight(); 
 };
-
-class Circle : public TwoDimensionalShape {
-public:
-    Circle(double x = 0, double y = 0, double radius = 0);
-    
-    double getRadius() const;
-    void setRadius(double radius);
-    double getArea() const;
-    double getCircumference() const;
-    void print() const override;
-};
-
-class Square : public TwoDimensionalShape {
-public:
-    Square(double x = 0, double y = 0, double sideLength = 0);
-    
-    double getArea() const;
-    double getPerimeter() const;
-    void print() const override;
-};
-
-class Triangle : public TwoDimensionalShape {
-public:
-    Triangle(double x = 0, double y = 0, double sideLength = 0);
-    
-    double getArea() const;
-    double getPerimeter() const;
-    void print() const override;
-
-private:
-    double calculateHeight() const;
-};
-
-// Shape class implementation
-
-Shape::Shape(double x, double y, double sideLength, const char* name) : x(x), y(y), sideLength(sideLength) {
-    this->name = new char[strlen(name) + 1];
-    strcpy(this->name, name);
-}
-
-Shape::~Shape() {
-    delete[] name;
-}
-
-double Shape::getSideLength() const { return sideLength; }
-double Shape::getX() const { return x; }
-double Shape::getY() const { return y; }
-
-void Shape::setSideLength(double sideLength) { this->sideLength = sideLength; }
-void Shape::setX(double x) { this->x = x; }
-void Shape::setY(double y) { this->y = y; }
-
-void Shape::setName(const char* name) {
-    delete[] this->name;
-    this->name = new char[strlen(name) + 1];
-    strcpy(this->name, name);
-}
-Shape::Shape(const Shape& other) : x(other.x), y(other.y), sideLength(other.sideLength) {
-    name = new char[strlen(other.name) + 1];
-    strcpy(name, other.name);
-}
-
-Shape& Shape::operator=(const Shape& other) {
-    if (this != &other) {
-        delete[] name;
-        x = other.x;
-        y = other.y;
-        sideLength = other.sideLength;
-        name = new char[strlen(other.name) + 1];
-        strcpy(name, other.name);
-    }
-    return *this;
-}
-
-const char* Shape::getName() const { return name; }
-
-void Shape::print() const {
-    std::cout << "Shape: " << name << ", Position: (" << x << ", " << y << "), Side length: " << sideLength << std::endl;
-}
-
-// 2DShape class
-
-TwoDimensionalShape::TwoDimensionalShape(double x, double y, double sideLength, const char* name, int numOfSides)
-    : Shape(x, y, sideLength, name), numOfSides(numOfSides) {}
-
-TwoDimensionalShape::~TwoDimensionalShape() {}
-
-int TwoDimensionalShape::getNumOfSides() const { return numOfSides; }
-
-void TwoDimensionalShape::setNumOfSides(int numOfSides) {
-    this->numOfSides = numOfSides > 0 ? numOfSides : 1;
-}
-
-void TwoDimensionalShape::print() const {
-    Shape::print();
-    std::cout << "Number of sides: " << numOfSides << std::endl;
-}
-
-// Circle class
-
-Circle::Circle(double x, double y, double radius) : TwoDimensionalShape(x, y, radius, "Circle", 1) {}
-
-double Circle::getRadius() const { return sideLength; }
-void Circle::setRadius(double radius) { setSideLength(radius); }
-
-double Circle::getArea() const { return M_PI * sideLength * sideLength; }
-double Circle::getCircumference() const { return 2 * M_PI * sideLength; }
-
-void Circle::print() const {
-    std::cout << "Circle: Center: (" << getX() << ", " << getY() << "), Radius: " << getRadius()
-              << ", Area: " << getArea() << ", Circumference: " << getCircumference() << std::endl;
-}
-
-// Square class
-
-Square::Square(double x, double y, double sideLength) : TwoDimensionalShape(x, y, sideLength, "Square", 4) {}
-
-double Square::getArea() const { return sideLength * sideLength; }
-double Square::getPerimeter() const { return 4 * sideLength; }
-
-void Square::print() const {
-    std::cout << "Square: Position: (" << getX() << ", " << getY() << "), Side Length: " << getSideLength()
-              << ", Area: " << getArea() << ", Perimeter: " << getPerimeter() << std::endl;
-}
-
-// Triangle class
-
-Triangle::Triangle(double x, double y, double sideLength) : TwoDimensionalShape(x, y, sideLength, "Triangle", 3) {}
-
-double Triangle::getArea() const { return (sideLength * calculateHeight()) / 2; }
-double Triangle::getPerimeter() const { return 3 * sideLength; }
-
-double Triangle::calculateHeight() const { return (sqrt(3) / 2) * sideLength; }
-
-void Triangle::print() const {
-    std::cout << "Triangle: Position: (" << getX() << ", " << getY() << "), Side length: " << getSideLength()
-              << ", Area: " << getArea() << ", Perimeter: " << getPerimeter() << std::endl;
-}
+ 
+Shape::Shape(const char* name){ 
+    this->name = new char[strlen(name)+1]; 
+    strcpy(this->name,name); 
+} 
+ 
+//deconstructor 
+Shape::~Shape(){ 
+    if(name) 
+        delete name; 
+} 
+ 
+const char* Shape::getName(){ 
+    return (const char*)name; 
+} 
+ 
+void Shape::setName(const char* name){ 
+    if(this->name!=NULL) 
+        delete this->name; 
+    this->name = new char[strlen(name)+1]; 
+    strcpy(this->name,name); 
+} 
+ 
+//2d shape
+TwoDimensionalShape::TwoDimensionalShape(double x, double y, double sideLength, 
+const char* name): Shape(name){ 
+    setX(x); 
+    setY(y); 
+    setSideLength(sideLength); 
+} 
+ 
+//returns length of the side 
+double TwoDimensionalShape::getSideLength(){ 
+    return this->sideLength; 
+} 
+ 
+//returns X 
+double TwoDimensionalShape::getX(){ 
+    return this->x; 
+} 
+ 
+//returns Y 
+double TwoDimensionalShape::getY(){ 
+    return this->y; 
+} 
+ 
+//sets side length 
+void TwoDimensionalShape::setSideLength(double sideLength){ 
+    this->sideLength=sideLength; 
+} 
+ 
+//sets X 
+void TwoDimensionalShape::setX(double x){ 
+    this->x=x; 
+} 
+ 
+//sets Y 
+void TwoDimensionalShape::setY(double y){ 
+    this->y=y; 
+} 
+ 
+//Circle 
+Circle::Circle(double x, double y, double radius): 
+TwoDimensionalShape(x,y,radius), Shape("Circle"){ 
+     
+} 
+ 
+double Circle::getRadius(){ 
+    return sideLength; 
+} 
+void Circle::setRadius(double radius){ 
+    setSideLength(radius); 
+} 
+void Circle::setCenterX(double x){ 
+    setX(x); 
+} 
+void Circle::setCenterY(double y){ 
+    setY(y); 
+} 
+double Circle::getArea(){ 
+    return M_PI*sideLength*sideLength; 
+} 
+double Circle::getPerimeter(){ 
+    return M_PI*2*sideLength; 
+} 
+double Circle::getCircumference(){ 
+    return getPerimeter(); 
+} 
+const char* Circle::getShapeName(){ 
+    return getName(); 
+} 
+double Circle::getCenterX(){ 
+    return getX(); 
+} 
+double Circle::getCenterY(){ 
+    return getY(); 
+} 
+ 
+//Square 
+Square::Square(double x, double y, double sideLength) : 
+TwoDimensionalShape(x,y,sideLength), Shape("Square"){ 
+} 
+ 
+double Square::getSideLength() { 
+    return sideLength; 
+} 
+ 
+void Square::setSideLength(double sideLength) { 
+    this->sideLength = sideLength; 
+} 
+ 
+double Square::getArea() { 
+    return sideLength * sideLength; 
+} 
+ 
+double Square::getPerimeter() { 
+    return 4 * sideLength; 
+} 
+ 
+const char* Square::getShapeName() { 
+    return getName(); 
+} 
+ 
+// Top-left corner (original center point) 
+double Square::getTopLeftX() { 
+    return getX(); 
+} 
+ 
+double Square::getTopLeftY() { 
+    return getY(); 
+} 
+ 
+// Top-right corner 
+double Square::getTopRightX() { 
+    return getX() + sideLength; 
+} 
+ 
+double Square::getTopRightY() { 
+    return getY(); 
+} 
+ 
+// Bottom-left corner 
+double Square::getBottomLeftX() { 
+    return getX(); 
+} 
+ 
+double Square::getBottomLeftY() { 
+    return getY() - sideLength; 
+} 
+ 
+// Bottom-right corner 
+double Square::getBottomRightX() { 
+    return getX() + sideLength; 
+} 
+ 
+double Square::getBottomRightY() { 
+    return getY() - sideLength; 
+} 
+ 
+void Square::setTopLeftX(double x) { 
+    setX(x); 
+} 
+ 
+void Square::setTopLeftY(double y) { 
+    setY(y); 
+} 
+ 
+void Square::setTopRightX(double x){ 
+    setX(x-sideLength); 
+} 
+ 
+void Square::setTopRightY(double y){ 
+    setY(y); 
+} 
+ 
+void Square::setBottomLeftX(double x){ 
+    setX(x); 
+} 
+ 
+void Square::setBottomLeftY(double y){ 
+    setY(y+sideLength); 
+} 
+ 
+void Square::setBottomRightX(double x){ 
+    setX(x-sideLength); 
+} 
+ 
+void Square::setBottomRightY(double y){ 
+    setY(y+sideLength); 
+} 
+ 
+//Perfect Triangle 
+ 
+Triangle::Triangle(double x, double y, double sideLength) : 
+TwoDimensionalShape(x,y,sideLength), Shape("Perfect Triangle"){ 
+} 
+ 
+double Triangle::getSideLength() { 
+    return sideLength; 
+} 
+ 
+void Triangle::setSideLength(double sideLength) { 
+    this->sideLength = sideLength; 
+} 
+ 
+double Triangle::getArea() { 
+    return (sideLength * calculateHeight()) / 2; 
+} 
+ 
+double Triangle::getPerimeter() { 
+    return 3 * sideLength; 
+} 
+ 
+const char* Triangle::getShapeName() { 
+    return getName(); 
+} 
+ 
+// Calculate the height of the equilateral triangle 
+double Triangle::calculateHeight() { 
+    return (sqrt(3) / 2) * sideLength; 
+} 
+ 
+// Top vertex (main point) 
+double Triangle::getTopX() { 
+    return getX(); 
+} 
+ 
+double Triangle::getTopY() { 
+    return getY(); 
+} 
+ 
+// Bottom-left vertex 
+double Triangle::getBottomLeftX() { 
+    return getX() - (sideLength / 2); 
+} 
+ 
+double Triangle::getBottomLeftY() { 
+    return getY() - calculateHeight(); 
+} 
+ 
+// Bottom-right vertex 
+double Triangle::getBottomRightX() { 
+    return getX() + (sideLength / 2); 
+} 
+ 
+double Triangle::getBottomRightY() { 
+    return getY() - calculateHeight(); 
+} 
+ 
+// Setters for the top vertex, split by x and y 
+void Triangle::setTopX(double x) { 
+    setX(x); 
+} 
+ 
+void Triangle::setTopY(double y) { 
+    setY(y); 
+} 
+ 
+void Triangle::setBottomLeftX(double x){ 
+    setX(x + (sideLength / 2)); 
+} 
+ 
+void Triangle::setBottomLeftY(double y){ 
+    setY(y + calculateHeight()); 
+} 
+ 
+void Triangle::setBottomRightX(double x){ 
+    setX(x - (sideLength / 2)); 
+} 
+ 
+void Triangle::setBottomRightY(double y){ 
+    setY(y + calculateHeight()); 
+} 
+ 

@@ -1,73 +1,92 @@
-#include "shapes.hpp"
-#include <vector>
 #include <iostream>
+#include <vector>
+#include <algorithm>
+#include "shapes.hpp"
 
-int main() {
-    std::vector<Shape*> shapes;
-    bool running = true;
+using namespace std;
 
-    while (running) {
-        std::cout << "\nChoose a shape to create (\n1 = Circle\n2 = Square\n3 = Triangle\n4 = Print objects\n5 = Sort objects by area\n0 = Exit\n): ";
-        int choice;
-        std::cin >> choice;
+vector<Shape*> shapes;
 
-        Shape* newShape = nullptr;
+void displayShapes() {
+    for (size_t i = 0; i < shapes.size(); ++i) {
+        cout << i + 1 << ". " << shapes[i]->getName() << endl
+             << "Area: " << shapes[i]->getArea() << endl
+             << "Perimeter: " << shapes[i]->getPerimeter() << endl << endl;
+    }
+}
 
-        switch (choice) {
-            case 1: {
-                double x, y, radius;
-                std::cout << "Enter x, y coordinates and radius: ";
-                std::cin >> x >> y >> radius;
-                newShape = new Circle(x, y, radius);
-                break;
+void createCircle() {
+    double x, y, radius;
+    cout << "X, Y, side length of the circle: ";
+    cin >> x >> y >> radius;
+    shapes.push_back(new Circle(x, y, radius));
+}
+
+void createSquare() {
+    double x, y, sideLength;
+    cout << "X, Y, side length of the square: ";
+    cin >> x >> y >> sideLength;
+    shapes.push_back(new Square(x, y, sideLength));
+}
+
+void createTriangle() {
+    double x, y, sideLength;
+    cout << "X, Y, side length of the triangle: ";
+    cin >> x >> y >> sideLength;
+    shapes.push_back(new Triangle(x, y, sideLength));
+}
+
+void sortShapesByArea() {
+    for (size_t i = 0; i < shapes.size() - 1; ++i) {
+        for (size_t j = 0; j < shapes.size() - i - 1; ++j) {
+            if (shapes[j]->getArea() > shapes[j + 1]->getArea()) {
+                Shape* temp = shapes[j];
+                shapes[j] = shapes[j + 1];
+                shapes[j + 1] = temp;
             }
-            case 2: {
-                double x, y, sideLength;
-                std::cout << "Enter x, y coordinates and side length: ";
-                std::cin >> x >> y >> sideLength;
-                newShape = new Square(x, y, sideLength);
-                break;
-            }
-            case 3: {
-                double x, y, sideLength;
-                std::cout << "Enter x, y coordinates and side length: ";
-                std::cin >> x >> y >> sideLength;
-                newShape = new Triangle(x, y, sideLength);
-                break;
-            }
-            case 4:
-                std::cout << "Printing all objects:\n";
-                for (Shape* shape : shapes) {
-                    shape->print();
-                }
-                continue;
-            case 5:
-                for (int i = 0; i < shapes.size(); ++i) {
-                    for (int j = 0; j < shapes.size() - i - 1; ++j) {
-                        if (shapes[j]->getArea() > shapes[j + 1]->getArea()) {
-                            std::swap(shapes[j], shapes[j + 1]);
-                        }
-                    }
-                }
-                std::cout << "Sorted by area.\n";
-                break;
-            case 0:
-                running = false;
-                break;  
-            default:
-                std::cout << "Try again." << std::endl;
-                continue;
-        }
-
-        if (newShape) {
-            shapes.push_back(newShape);
-            std::cout << "\nCreated " << newShape->getName() << " at ("
-                      << newShape->getX() << ", " << newShape->getY() << ") with side length "
-                      << newShape->getSideLength() << "\n";
         }
     }
+    cout << "Done.\n";
+}
 
-    for (auto shape : shapes) {
+int main() {
+    int choice;
+
+    do {
+        cout << "1. Circle\n";
+        cout << "2. Square\n";
+        cout << "3. Triangle\n";
+        cout << "4. Print objects\n";
+        cout << "5. Sort by area\n";
+        cout << "0. Exit\n";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                createCircle();
+                break;
+            case 2:
+                createSquare();
+                break;
+            case 3:
+                createTriangle();
+                break;
+            case 4:
+                displayShapes();
+                break;
+            case 5:
+                sortShapesByArea();
+                break;
+            case 0:
+                cout << "Bye.\n";
+                break;
+            default:
+                cout << "No.\n";
+                break;
+        }
+    } while (choice != 0);
+
+    for (Shape* shape : shapes) {
         delete shape;
     }
 
