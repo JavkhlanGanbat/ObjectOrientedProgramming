@@ -28,8 +28,7 @@ class TwoDShape : virtual public Shape{
         void setSideLength(double sideLength); 
         void setX(double x); 
         void setY(double y); 
-        TwoDShape(double x=0, double y=0, double sideLength=0,const 
-char* name="EMPTY"); 
+        TwoDShape(double x=0, double y=0, double sideLength=0, const char* name="o"); 
         virtual double getArea() = 0; 
 }; 
  
@@ -297,7 +296,7 @@ void Square::setBottomRightY(double y){
 //Perfect Triangle 
  
 Triangle::Triangle(double x, double y, double sideLength) : 
-TwoDShape(x,y,sideLength), Shape("Perfect Triangle"){ 
+TwoDShape(x,y,sideLength), Shape("Triangle"){ 
 } 
  
 double Triangle::getSideLength() { 
