@@ -225,7 +225,7 @@ const char* Square::getShapeName() {
     return getName(); 
 } 
  
-// Top-left corner (original center point) 
+// Top-left corner
 double Square::getTopLeftX() { 
     return getX(); 
 } 
@@ -319,12 +319,12 @@ const char* Triangle::getShapeName() {
     return getName(); 
 } 
  
-// Calculate the height of the equilateral triangle 
+// Calculate the height of the perfect triangle 
 double Triangle::calculateHeight() { 
     return (sqrt(3) / 2) * sideLength; 
 } 
  
-// Top vertex (main point) 
+// Top vertex
 double Triangle::getTopX() { 
     return getX(); 
 } 
