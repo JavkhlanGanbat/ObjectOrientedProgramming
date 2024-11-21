@@ -44,18 +44,18 @@ void sortShapesByArea() {
             }
         }
     }
-    cout << "Shapes sorted by area.\n";
+    cout << "Done.\n";
 }
 
 int main() {
     int choice;
 
     do {
-        cout << "1. Create Circle\n";
-        cout << "2. Create Square\n";
-        cout << "3. Create Triangle\n";
-        cout << "4. Display Shapes\n";
-        cout << "5. Sort by Area\n";
+        cout << "1. Circle\n";
+        cout << "2. Square\n";
+        cout << "3. Triangle\n";
+        cout << "4. Print objects\n";
+        cout << "5. Sort by area\n";
         cout << "0. Exit\n";
         cin >> choice;
 
@@ -76,10 +76,10 @@ int main() {
                 sortShapesByArea();
                 break;
             case 0:
-                cout << "Goodbye!\n";
+                cout << "Bye.\n";
                 break;
             default:
-                cout << "Invalid option. Try again.\n";
+                cout << "No.\n";
                 break;
         }
     } while (choice != 0);
