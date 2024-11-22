@@ -15,23 +15,40 @@ void createCircle() {
     double x, y, radius;
     cout << "Enter X, Y, radius of the circle: ";
     cin >> x >> y >> radius;
-    shapes.push_back(new Circle(x, y, radius));
+
+    Circle* cir = new Circle();
+    cir->setX(x);
+    cir->setY(y);
+    cir->setRadius(radius);
+
+    shapes.push_back(cir);
 }
 
 void createSquare() {
     double x, y, sideLength;
     cout << "Enter X, Y, side length of the square: ";
     cin >> x >> y >> sideLength;
-    shapes.push_back(new Square(x, y, sideLength));
+
+    Square* sq = new Square();
+    sq->setX(x);
+    sq->setY(y);
+    sq->setSideLength(sideLength);
+
+    shapes.push_back(sq);
 }
 
 void createTriangle() {
     double x, y, sideLength;
     cout << "Enter X, Y, side length of the triangle: ";
     cin >> x >> y >> sideLength;
-    shapes.push_back(new Triangle(x, y, sideLength));
-}
 
+    Triangle* tri = new Triangle();
+    tri->setX(x);
+    tri->setY(y);
+    tri->setSideLength(sideLength);
+
+    shapes.push_back(tri);
+}
 void sortShapesByArea() {
     for (int i = 0; i < shapes.size() - 1; ++i) {
         for (int j = 0; j < shapes.size() - i - 1; ++j) {
