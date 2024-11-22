@@ -1,7 +1,5 @@
 #include "shapes.hpp"
 
-using namespace std;
-
 vector<TwoDShape*> shapes;
 
 void displayShapes() {
