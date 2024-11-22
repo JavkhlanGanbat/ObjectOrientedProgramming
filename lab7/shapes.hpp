@@ -12,8 +12,6 @@ class Shape {
         virtual ~Shape();
         void setName(const char* name);
         const char* getName();
-        virtual double getPerimeter() = 0;
-        virtual double getArea() = 0;
 };
  
 class TwoDShape : virtual public Shape{ 
@@ -30,6 +28,7 @@ class TwoDShape : virtual public Shape{
         void setY(double y); 
         TwoDShape(double x=0, double y=0, double sideLength=0, const char* name="o"); 
         virtual double getArea() = 0; 
+        virtual double getPerimeter() = 0;
 }; 
  
 class Circle : public TwoDShape{ 

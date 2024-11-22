@@ -35,8 +35,8 @@ void createTriangle() {
 }
 
 void sortShapesByArea() {
-    for (size_t i = 0; i < shapes.size() - 1; ++i) {
-        for (size_t j = 0; j < shapes.size() - i - 1; ++j) {
+    for (int i = 0; i < shapes.size() - 1; ++i) {
+        for (int j = 0; j < shapes.size() - i - 1; ++j) {
             if (shapes[j]->getArea() > shapes[j + 1]->getArea()) {
                 TwoDShape* temp = shapes[j];
                 shapes[j] = shapes[j + 1];
