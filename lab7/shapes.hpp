@@ -226,74 +226,41 @@ const char* Square::getShapeName() {
  
 // Top-left corner
 double Square::getTopLeftX() { 
-    return getX(); 
+    return getX() - (sideLength / 2); 
 } 
- 
+
 double Square::getTopLeftY() { 
-    return getY(); 
+    return getY() + (sideLength / 2); 
 } 
- 
+
 // Top-right corner 
 double Square::getTopRightX() { 
-    return getX() + sideLength; 
+    return getX() + (sideLength / 2); 
 } 
- 
+
 double Square::getTopRightY() { 
-    return getY(); 
+    return getY() + (sideLength / 2); 
 } 
- 
+
 // Bottom-left corner 
 double Square::getBottomLeftX() { 
-    return getX(); 
+    return getX() - (sideLength / 2); 
 } 
- 
+
 double Square::getBottomLeftY() { 
-    return getY() - sideLength; 
+    return getY() - (sideLength / 2); 
 } 
- 
+
 // Bottom-right corner 
 double Square::getBottomRightX() { 
-    return getX() + sideLength; 
+    return getX() + (sideLength / 2); 
 } 
- 
+
 double Square::getBottomRightY() { 
-    return getY() - sideLength; 
+    return getY() - (sideLength / 2); 
 } 
  
-void Square::setTopLeftX(double x) { 
-    setX(x); 
-} 
- 
-void Square::setTopLeftY(double y) { 
-    setY(y); 
-} 
- 
-void Square::setTopRightX(double x){ 
-    setX(x-sideLength); 
-} 
- 
-void Square::setTopRightY(double y){ 
-    setY(y); 
-} 
- 
-void Square::setBottomLeftX(double x){ 
-    setX(x); 
-} 
- 
-void Square::setBottomLeftY(double y){ 
-    setY(y+sideLength); 
-} 
- 
-void Square::setBottomRightX(double x){ 
-    setX(x-sideLength); 
-} 
- 
-void Square::setBottomRightY(double y){ 
-    setY(y+sideLength); 
-} 
- 
-//Perfect Triangle 
- 
+//Perfect triangle 
 Triangle::Triangle(double x, double y, double sideLength) : 
 TwoDShape(x,y,sideLength), Shape("Triangle"){ 
 } 
@@ -318,7 +285,6 @@ const char* Triangle::getShapeName() {
     return getName(); 
 } 
  
-// Calculate the height of the perfect triangle 
 double Triangle::calculateHeight() { 
     return (sqrt(3) / 2) * sideLength; 
 } 
@@ -327,51 +293,26 @@ double Triangle::calculateHeight() {
 double Triangle::getTopX() { 
     return getX(); 
 } 
- 
+
 double Triangle::getTopY() { 
-    return getY(); 
+    return getY() + (calculateHeight() / 2); 
 } 
- 
+
 // Bottom-left vertex 
 double Triangle::getBottomLeftX() { 
     return getX() - (sideLength / 2); 
 } 
- 
+
 double Triangle::getBottomLeftY() { 
-    return getY() - calculateHeight(); 
+    return getY() - (calculateHeight() / 2); 
 } 
- 
+
 // Bottom-right vertex 
 double Triangle::getBottomRightX() { 
     return getX() + (sideLength / 2); 
 } 
- 
+
 double Triangle::getBottomRightY() { 
-    return getY() - calculateHeight(); 
-} 
- 
-// Setters for the top vertex, split by x and y 
-void Triangle::setTopX(double x) { 
-    setX(x); 
-} 
- 
-void Triangle::setTopY(double y) { 
-    setY(y); 
-} 
- 
-void Triangle::setBottomLeftX(double x){ 
-    setX(x + (sideLength / 2)); 
-} 
- 
-void Triangle::setBottomLeftY(double y){ 
-    setY(y + calculateHeight()); 
-} 
- 
-void Triangle::setBottomRightX(double x){ 
-    setX(x - (sideLength / 2)); 
-} 
- 
-void Triangle::setBottomRightY(double y){ 
-    setY(y + calculateHeight()); 
+    return getY() - (calculateHeight() / 2); 
 } 
  

@@ -83,7 +83,7 @@ int main() {
         cout << "3. Triangle\n";
         cout << "4. Print objects\n";
         cout << "5. Sort by area\n";
-        cout << "6. Sort by perimeter";
+        cout << "6. Sort by perimeter\n";
         cout << "0. Exit\n";
         cin >> choice;
 
