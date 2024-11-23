@@ -62,6 +62,18 @@ void sortShapesByArea() {
     cout << "Done.\n";
 }
 
+void sortShapesByPerimeter() {
+    for (int i = 0; i < shapes.size() - 1; ++i) {
+        for (int j = 0; j < shapes.size() - i - 1; ++j) {
+            if (shapes[j]->getPerimeter() > shapes[j + 1]->getPerimeter()) {
+                TwoDShape* temp = shapes[j];
+                shapes[j] = shapes[j + 1];
+                shapes[j + 1] = temp;
+            }
+        }
+    }
+    cout << "Done.\n";
+}
 int main() {
     int choice;
 
@@ -71,6 +83,7 @@ int main() {
         cout << "3. Triangle\n";
         cout << "4. Print objects\n";
         cout << "5. Sort by area\n";
+        cout << "6. Sort by perimeter";
         cout << "0. Exit\n";
         cin >> choice;
 
@@ -89,6 +102,9 @@ int main() {
                 break;
             case 5:
                 sortShapesByArea();
+                break;
+            case 6:
+                sortShapesByPerimeter();
                 break;
             case 0:
                 cout << "Bye.\n";
