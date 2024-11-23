@@ -26,7 +26,7 @@ class TwoDShape : virtual public Shape{
         void setSideLength(double sideLength); 
         void setX(double x); 
         void setY(double y); 
-        TwoDShape(double x=0, double y=0, double sideLength=0, const char* name="o"); 
+        TwoDShape(double x = 0, double y = 0, double sideLength = 0, const char* name = "o"); 
         virtual double getArea() = 0; 
         virtual double getPerimeter() = 0;
 }; 
@@ -35,7 +35,7 @@ class Circle : public TwoDShape{
     private: 
         double getPerimeter() override; 
     public: 
-        Circle(double x=0, double y=0, double radius=0); 
+        Circle(double x = 0, double y = 0, double radius = 0); 
         double getRadius(); 
         void setRadius(double radius); 
         void setCenterX(double x); 
@@ -49,7 +49,7 @@ class Circle : public TwoDShape{
  
 class Square : public TwoDShape { 
 public: 
-    Square(double x=0, double y=0, double sideLength=0); 
+    Square(double x = 0, double y = 0, double sideLength = 0); 
     double getSideLength(); 
     void setSideLength(double sideLength); 
     double getArea() override; 
@@ -64,20 +64,11 @@ public:
     double getBottomLeftY(); 
     double getBottomRightX(); 
     double getBottomRightY(); 
- 
-    void setTopLeftX(double x); 
-    void setTopLeftY(double y); 
-    void setTopRightX(double x); 
-    void setTopRightY(double y); 
-    void setBottomLeftX(double x); 
-    void setBottomLeftY(double y); 
-    void setBottomRightX(double x); 
-    void setBottomRightY(double y); 
 }; 
  
 class Triangle : public TwoDShape { 
 public: 
-    Triangle(double x=0, double y=0, double sideLength=0); 
+    Triangle(double x = 0, double y = 0, double sideLength = 0); 
     double getSideLength(); 
     void setSideLength(double sideLength); 
     double getArea() override; 
@@ -90,13 +81,6 @@ public:
     double getBottomLeftY(); 
     double getBottomRightX(); 
     double getBottomRightY(); 
- 
-    void setTopX(double x); 
-    void setTopY(double y); 
-    void setBottomLeftX(double x); 
-    void setBottomLeftY(double y); 
-    void setBottomRightX(double x); 
-    void setBottomRightY(double y); 
  
 private: 
     double calculateHeight(); 
@@ -149,18 +133,18 @@ double TwoDShape::getY(){
  
 //sets side length 
 void TwoDShape::setSideLength(double sideLength){ 
-    this->sideLength=sideLength; 
+    this->sideLength = sideLength; 
 } 
  
 //sets X 
 void TwoDShape::setX(double x){ 
-    this->x=x; 
+    this->x = x; 
 } 
  
 //sets Y 
 void TwoDShape::setY(double y){ 
-    this->y=y; 
-} 
+    this->y = y; 
+}
  
 //Circle 
 Circle::Circle(double x, double y, double radius): 
@@ -181,10 +165,10 @@ void Circle::setCenterY(double y){
     setY(y); 
 } 
 double Circle::getArea(){ 
-    return M_PI*sideLength*sideLength; 
+    return M_PI * sideLength * sideLength; 
 } 
 double Circle::getPerimeter(){ 
-    return M_PI*2*sideLength; 
+    return M_PI * 2 * sideLength; 
 } 
 double Circle::getCircumference(){ 
     return getPerimeter(); 
