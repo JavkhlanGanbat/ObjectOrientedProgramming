@@ -9,6 +9,8 @@ class Shape {
         char* name;
     public:
         Shape(const char* name = "");
+        Shape(const Shape& other);
+        Shape& operator=(const Shape& other);
         virtual ~Shape();
         void setName(const char* name);
         const char* getName();
@@ -48,22 +50,22 @@ class Circle : public TwoDShape{
 }; 
  
 class Square : public TwoDShape { 
-public: 
-    Square(double x = 0, double y = 0, double sideLength = 0); 
-    double getSideLength(); 
-    void setSideLength(double sideLength); 
-    double getArea() override; 
-    double getPerimeter() override; 
-    const char* getShapeName(); 
- 
-    double getTopLeftX(); 
-    double getTopLeftY(); 
-    double getTopRightX(); 
-    double getTopRightY(); 
-    double getBottomLeftX(); 
-    double getBottomLeftY(); 
-    double getBottomRightX(); 
-    double getBottomRightY(); 
+    public: 
+        Square(double x = 0, double y = 0, double sideLength = 0); 
+        double getSideLength(); 
+        void setSideLength(double sideLength); 
+        double getArea() override; 
+        double getPerimeter() override; 
+        const char* getShapeName(); 
+    
+        double getTopLeftX(); 
+        double getTopLeftY(); 
+        double getTopRightX(); 
+        double getTopRightY(); 
+        double getBottomLeftX(); 
+        double getBottomLeftY(); 
+        double getBottomRightX(); 
+        double getBottomRightY(); 
 }; 
  
 class Triangle : public TwoDShape { 
@@ -85,27 +87,35 @@ public:
 private: 
     double calculateHeight(); 
 };
- 
-Shape::Shape(const char* name){ 
-    this->name = new char[strlen(name)+1]; 
-    strcpy(this->name,name); 
+
+Shape::Shape(const char* name) : name(nullptr) {
+    setName(name);
+}
+
+Shape::Shape(const Shape& other) : name(nullptr) {
+    setName(other.name);
+}
+
+Shape& Shape::operator=(const Shape& other) {
+    if (this != &other) {
+        setName(other.name);
+    }
+    return *this;
+}
+
+Shape::~Shape() {
+    delete[] name;
+}
+
+void Shape::setName(const char* name) { 
+    char* newName = new char[strlen(name) + 1]; 
+    strcpy(newName, name); 
+    delete[] this->name;
+    this->name = newName; 
 } 
- 
-//deconstructor 
-Shape::~Shape(){ 
-    if(name) 
-        delete name; 
-} 
- 
-const char* Shape::getName(){ 
-    return (const char*)name; 
-} 
- 
-void Shape::setName(const char* name){ 
-    if(this->name!=NULL) 
-        delete this->name; 
-    this->name = new char[strlen(name)+1]; 
-    strcpy(this->name,name); 
+
+const char* Shape::getName() {
+    return name; 
 } 
  
 //2d shape
@@ -116,7 +126,6 @@ const char* name): Shape(name){
     setSideLength(sideLength); 
 } 
  
-//returns length of the side 
 double TwoDShape::getSideLength(){ 
     return this->sideLength; 
 } 
@@ -148,8 +157,7 @@ void TwoDShape::setY(double y){
  
 //Circle 
 Circle::Circle(double x, double y, double radius): 
-TwoDShape(x,y,radius), Shape("Circle"){ 
-     
+TwoDShape(x, y, radius), Shape("Circle"){ 
 } 
  
 double Circle::getRadius(){ 
@@ -185,7 +193,7 @@ double Circle::getCenterY(){
  
 //Square 
 Square::Square(double x, double y, double sideLength) : 
-TwoDShape(x,y,sideLength), Shape("Square"){ 
+TwoDShape(x, y, sideLength), Shape("Square"){ 
 } 
  
 double Square::getSideLength() { 
@@ -246,8 +254,8 @@ double Square::getBottomRightY() {
  
 //Perfect triangle 
 Triangle::Triangle(double x, double y, double sideLength) : 
-TwoDShape(x,y,sideLength), Shape("Triangle"){ 
-} 
+TwoDShape(x, y, sideLength), Shape("Triangle"){ 
+}
  
 double Triangle::getSideLength() { 
     return sideLength; 
