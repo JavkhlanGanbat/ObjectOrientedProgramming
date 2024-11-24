@@ -34,8 +34,6 @@ class TwoDShape : virtual public Shape{
 }; 
  
 class Circle : public TwoDShape{ 
-    private: 
-        double getPerimeter() override; 
     public: 
         Circle(double x = 0, double y = 0, double radius = 0); 
         double getRadius(); 
@@ -46,6 +44,7 @@ class Circle : public TwoDShape{
         double getCenterY(); 
         double getCircumference(); 
         double getArea() override; 
+        double getPerimeter() override; 
         const char* getShapeName(); 
 }; 
  
@@ -69,23 +68,23 @@ class Square : public TwoDShape {
 }; 
  
 class Triangle : public TwoDShape { 
-public: 
-    Triangle(double x = 0, double y = 0, double sideLength = 0); 
-    double getSideLength(); 
-    void setSideLength(double sideLength); 
-    double getArea() override; 
-    double getPerimeter() override; 
-    const char* getShapeName(); 
- 
-    double getTopX(); 
-    double getTopY(); 
-    double getBottomLeftX(); 
-    double getBottomLeftY(); 
-    double getBottomRightX(); 
-    double getBottomRightY(); 
- 
-private: 
-    double calculateHeight(); 
+    public: 
+        Triangle(double x = 0, double y = 0, double sideLength = 0); 
+        double getSideLength(); 
+        void setSideLength(double sideLength); 
+        double getArea() override; 
+        double getPerimeter() override; 
+        const char* getShapeName(); 
+    
+        double getTopX(); 
+        double getTopY(); 
+        double getBottomLeftX(); 
+        double getBottomLeftY(); 
+        double getBottomRightX(); 
+        double getBottomRightY(); 
+    
+    private: 
+        double calculateHeight(); 
 };
 
 Shape::Shape(const char* name) : name(nullptr) {
