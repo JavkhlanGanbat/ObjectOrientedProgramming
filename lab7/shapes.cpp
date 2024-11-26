@@ -1,10 +1,10 @@
 #include "shapes.hpp"
 
-Shape::Shape(const char* name) : name(nullptr) {
+Shape::Shape(const char* name) {
     setName(name);
 }
 
-Shape::Shape(const Shape& other) : name(nullptr) {
+Shape::Shape(const Shape& other) {
     setName(other.name);
 }
 
