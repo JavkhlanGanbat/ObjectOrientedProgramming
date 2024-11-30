@@ -10,8 +10,8 @@ using namespace std;
 class Shape {
     protected:
         char* name;
-    public:
         static int ObjCount;
+    public:
         Shape(const char* name = "");
         Shape(const Shape& other);
         Shape& operator=(const Shape& other);
