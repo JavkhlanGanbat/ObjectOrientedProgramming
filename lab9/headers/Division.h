@@ -1,10 +1,9 @@
-// Division.h
-#ifndef DIVISION_H
-#define DIVISION_H
+#pragma once
 
 #include <string>
 #include <iostream>
 using namespace std;
+
 class Division {
 private:
     string divisionName;
@@ -14,4 +13,3 @@ public:
     void setDivisionName(string divisionName);
 };
 
-#endif // DIVISION_H

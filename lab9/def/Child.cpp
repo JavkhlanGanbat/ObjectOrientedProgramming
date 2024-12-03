@@ -1,5 +1,5 @@
 // Child.cpp
-#include "Child.h"
+#include "../headers/Child.h"
 void Child::setFavouriteToy(string favouriteToy) {
     this->favouriteToy = favouriteToy;
 }

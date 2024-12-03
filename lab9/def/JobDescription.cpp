@@ -1,5 +1,5 @@
 // Jobdescription.cpp
-#include "./JobDescription.h"
+#include "../headers/JobDescription.h"
 
 string Jobdescription::getDescription() const {
     return Description;

@@ -1,5 +1,5 @@
 // Division.cpp
-#include "Division.h"
+#include "../headers/Division.h"
 
 string Division::getDivisionName() const {
     return divisionName;

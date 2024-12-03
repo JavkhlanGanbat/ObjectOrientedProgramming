@@ -1,16 +1,16 @@
 // Spouse.cpp
-#include "Spouse.h"
+#include "../headers/Spouse.h"
 
-void Spouse::setAnniversaryDate(const Date& newAnniversaryDate) {
-    anniversaryDate = newAnniversaryDate;
+void Spouse::setAnniversaryDate(const Date& anniversaryDate) {
+    this->anniversaryDate = anniversaryDate;
 }
 
 Date Spouse::getAnniversaryDate() const {
     return anniversaryDate;
 }
 
-void Spouse::setEmployee(Employee* newEmployee) {
-    myEmployee = newEmployee;
+void Spouse::setEmployee(Employee* myEmployee) {
+    this->myEmployee = myEmployee;
 }
 
 Employee* Spouse::getEmployee() const {

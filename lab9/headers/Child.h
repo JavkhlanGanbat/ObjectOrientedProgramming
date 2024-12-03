@@ -1,6 +1,5 @@
-// Child.h
-#ifndef CHILD_H
-#define CHILD_H
+#pragma once
+
 #include <iostream>
 
 #include "Person.h"
@@ -13,10 +12,8 @@ private:
     Employee* myEmployee;
 
 public:
-    void setFavouriteToy(string newFavouriteToy);
+    void setFavouriteToy(string favouriteToy);
     string getFavouriteToy() const;
-    void setEmployee(Employee* newEmployee);
+    void setEmployee(Employee* myEmployee);
     Employee* getEmployee() const;
 };
-
-#endif // CHILD_H

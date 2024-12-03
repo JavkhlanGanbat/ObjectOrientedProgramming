@@ -1,5 +1,5 @@
-#ifndef JOBDESCRIPTION_H
-#define JOBDESCRIPTION_H
+#pragma once
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -12,4 +12,3 @@ public:
     void setDescription(string Description);
 };
 
-#endif // JOBDESCRIPTION_H

@@ -1,6 +1,5 @@
-// Employee.h
-#ifndef EMPLOYEE_H
-#define EMPLOYEE_H
+#pragma once 
+
 #include <iostream>
 #include <vector>
 #include "Date.h"
@@ -19,27 +18,25 @@ private:
     Date startDate;
     Spouse* mySpouse;
     Child* myChildren;
-    Division* empDivision;  
+    const Division* empDivision;  
     vector<Jobdescription> jobDescriptions;  
 
 public:
     Employee(const Division& division);
-    void setCompanyID(string newCompanyID);
+    void setCompanyID(string companyID);
     string getCompanyID() const;
-    void setTitle(string newTitle);
+    void setTitle(string title);
     string getTitle() const;
-    void setStartDate(const Date& newStartDate);
+    void setStartDate(const Date& startDate);
     Date getStartDate() const;
-    void setSpouse(Spouse* newSpouse);
+    void setSpouse(Spouse* mySpouse);
     Spouse* getSpouse() const;
-    void setChildren(Child* newChildren);
+    void setChildren(Child* myChildren);
     Child* getChildren() const;
     void setDivision(Division* empDivision);
-    Division* getDivision() const;
+    const Division* getDivision() const;
     void addJobDescription(const Jobdescription& jobDesc);
     const vector<Jobdescription>& getJobDescriptions() const;
 
     Employee();
 };
-
-#endif // EMPLOYEE_H

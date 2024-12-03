@@ -1,6 +1,5 @@
-// Date.h
-#ifndef DATE_H
-#define DATE_H
+#pragma once    
+
 using namespace std;
 class Date {
 private:
@@ -16,11 +15,9 @@ public:
     int getMonth() const;
     int getDay() const;
 
-    void setYear(int newYear);
-    void setMonth(int newMonth);
-    void setDay(int newDay);
+    void setYear(int year);
+    void setMonth(int month);
+    void setDay(int day);
 
     void display() const;
 };
-
-#endif // DATE_H

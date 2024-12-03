@@ -1,45 +1,43 @@
-
-#include "Employee.h"
-
+#include "../headers/Employee.h"
 
 Employee::Employee(const Division& division) {
-    empDivision = division;     
+    empDivision = &division;     
 }
 
-void Employee::setCompanyID(string newCompanyID) {
-    companyID = newCompanyID;
+void Employee::setCompanyID(string companyID) {
+    this->companyID = companyID;
 }
 
 string Employee::getCompanyID() const {
     return companyID;
 }
 
-void Employee::setTitle(string newTitle) {
-    title = newTitle;
+void Employee::setTitle(string title) {
+    this->title = title;
 }
 
 string Employee::getTitle() const {
     return title;
 }
 
-void Employee::setStartDate(const Date& newStartDate) {
-    startDate = newStartDate;
+void Employee::setStartDate(const Date& startDate) {
+    this->startDate = startDate;
 }
 
 Date Employee::getStartDate() const {
     return startDate;
 }
 
-void Employee::setSpouse(Spouse* newSpouse) {
-    mySpouse = newSpouse;
+void Employee::setSpouse(Spouse* mySpouse) {
+    this->mySpouse = mySpouse;
 }
 
 Spouse* Employee::getSpouse() const {
     return mySpouse;
 }
 
-void Employee::setChildren(Child* newChildren) {
-    myChildren = newChildren;
+void Employee::setChildren(Child* myChildren) {
+    this->myChildren = myChildren;
 }
 
 Child* Employee::getChildren() const {
@@ -50,7 +48,7 @@ void Employee::setDivision(Division* empDivision) {
     this->empDivision = empDivision;
 }
 
-Division* Employee::getDivision() const {
+const Division* Employee::getDivision() const {
     return empDivision;
 }
 

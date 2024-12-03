@@ -1,6 +1,5 @@
-// Spouse.h
-#ifndef SPOUSE_H
-#define SPOUSE_H
+#pragma once
+
 #include <iostream>
 #include "Person.h"
 #include "Date.h"
@@ -13,10 +12,8 @@ private:
     Employee* myEmployee;
 
 public:
-    void setAnniversaryDate(const Date& newAnniversaryDate);
+    void setAnniversaryDate(const Date& abort);
     Date getAnniversaryDate() const;
-    void setEmployee(Employee* newEmployee);
+    void setEmployee(Employee* myEmployee);
     Employee* getEmployee() const;
 };
-
-#endif // SPOUSE_H

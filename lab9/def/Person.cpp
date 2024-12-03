@@ -1,5 +1,5 @@
 // Person.cpp
-#include "Person.h"
+#include "../headers/Person.h"
 
 
 string Person::getName() const {
@@ -14,14 +14,14 @@ int Person::getAge() const {
     return age;
 }
 
-void Person::setName(string newName) {
-    Name = newName;
+void Person::setName(string Name) {
+    this->Name = Name;
 }
 
-void Person::setSSNum(string newSSNum) {
-    SSNum = newSSNum;
+void Person::setSSNum(string SSNum) {
+    this->SSNum = SSNum;
 }
 
-void Person::setAge(int newAge) {
-    age = newAge;
+void Person::setAge(int age) {
+    this->age = age;
 }

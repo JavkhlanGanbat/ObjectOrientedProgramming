@@ -1,6 +1,5 @@
-// Person.h
-#ifndef PERSON_H
-#define PERSON_H
+#pragma once 
+
 using namespace std;
 
 #include <string>
@@ -16,9 +15,7 @@ public:
     string getSSNum() const;
     int getAge() const;
 
-    void setName(string newName);
-    void setSSNum(string newSSNum);
-    void setAge(int newAge);
+    void setName(string name);
+    void setSSNum(string SSNum);
+    void setAge(int age);
 };
-
-#endif // PERSON_H
