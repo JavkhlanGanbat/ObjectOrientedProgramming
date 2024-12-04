@@ -14,6 +14,6 @@ public:
     string getDescription() const;
     void setDescription(const string& description);
 
-    JobDescription operator=(const JobDescription& other);
+    JobDescription& operator=(const JobDescription& other);
 };
 

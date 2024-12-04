@@ -9,7 +9,7 @@ string JobDescription::getDescription() const { return description; }
 
 void JobDescription::setDescription(const string& description) { this->description = description; }
 
-JobDescription JobDescription::operator=(const JobDescription& other) {
-    setDescription(other.description);
+JobDescription& JobDescription::operator=(const JobDescription& other) {
+    if (this != &other) { setDescription(other.description); }
     return *this;
 }

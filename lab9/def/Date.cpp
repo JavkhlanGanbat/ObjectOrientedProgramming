@@ -46,27 +46,30 @@ void Date::setMonth(int month) {
 }
 
 void Date::setYear(int year) {
-    if (year >= 1970) {
+    if (year >= 1900) {
         this->year = year;
     }
 }
 
 void Date::parseFromString(const string& date) {
-    int index = 0, d = 0, m = 0, y = 0;
+    int d = 0, m = 0, y = 0;
+    size_t i = 0;
 
-    while (index < static_cast<int>(date.size()) && date[index] != '/') {
-        d = d * 10 + (date[index] - '0');
-        index++;
+    while (i < date.size() && date[i] != '/') {
+        d = d * 10 + (date[i] - '0');
+        i++;
     }
-    index++;
-    while (index < static_cast<int>(date.size()) && date[index] != '/') {
-        m = m * 10 + (date[index] - '0');
-        index++;
+
+    i++;
+    while (i < date.size() && date[i] != '/') {
+        m = m * 10 + (date[i] - '0');
+        i++;
     }
-    index++;
-    while (index < static_cast<int>(date.size())) {
-        y = y * 10 + (date[index] - '0');
-        index++;
+
+    i++;
+    while (i < date.size()) {
+        y = y * 10 + (date[i] - '0');
+        i++;
     }
 
     if (d == 0 || m == 0 || y == 0) throw invalid_argument("Date not in correct format D/M/Y");

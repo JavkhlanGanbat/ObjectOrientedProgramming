@@ -1,23 +1,23 @@
 #include "../headers/Person.hpp"
 
-People::People() : name(""), SSNum(""), age(0) {}
+Person::Person() : name(""), SSNum(""), age(0) {}
 
-People::People(const string& name, const string& SSNum, int age) {
+Person::Person(const string& name, const string& SSNum, int age) {
     setName(name);
     setSSNum(SSNum);
     setAge(age);
 }
 
-string People::getName() const { return name; }
+string Person::getName() const { return name; }
 
-string People::getSSNum() const { return SSNum; }
+string Person::getSSNum() const { return SSNum; }
 
-int People::getAge() const { return age; }
+int Person::getAge() const { return age; }
 
-void People::setName(const string& name) { this->name = name; }
+void Person::setName(const string& name) { this->name = name; }
 
-void People::setSSNum(const string& SSNum) { this->SSNum = SSNum; }
+void Person::setSSNum(const string& SSNum) { this->SSNum = SSNum; }
 
-void People::setAge(int age) {
+void Person::setAge(int age) {
     if (age >= 0) this->age = age;
 }

@@ -3,15 +3,15 @@
 #include <string>
 using namespace std;
 
-class People {
+class Person {
 private:
     string name;
     string SSNum;
     int age;
 
 public:
-    People();
-    People(const string& name, const string& SSNum, int age);
+    Person();
+    Person(const string& name, const string& SSNum, int age);
 
     string getName() const;
     string getSSNum() const;

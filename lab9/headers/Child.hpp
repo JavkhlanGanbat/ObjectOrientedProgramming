@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-class Child : public People {
+class Child : public Person {
 private:
     string favtoy;
 
@@ -16,5 +16,5 @@ public:
     string getFavoriteToy() const;
     void setFavoriteToy(const string& favtoy);
 
-    Child operator=(const Child& other);
+    Child& operator=(const Child& other);
 };
