@@ -1,27 +1,23 @@
-// Person.cpp
-#include "../headers/Person.h"
+#include "../headers/Person.hpp"
 
+People::People() : name(""), SSNum(""), age(0) {}
 
-string Person::getName() const {
-    return Name;
+People::People(const string& name, const string& SSNum, int age) {
+    setName(name);
+    setSSNum(SSNum);
+    setAge(age);
 }
 
-string Person::getSSNum() const {
-    return SSNum;
-}
+string People::getName() const { return name; }
 
-int Person::getAge() const {
-    return age;
-}
+string People::getSSNum() const { return SSNum; }
 
-void Person::setName(string Name) {
-    this->Name = Name;
-}
+int People::getAge() const { return age; }
 
-void Person::setSSNum(string SSNum) {
-    this->SSNum = SSNum;
-}
+void People::setName(const string& name) { this->name = name; }
 
-void Person::setAge(int age) {
-    this->age = age;
+void People::setSSNum(const string& SSNum) { this->SSNum = SSNum; }
+
+void People::setAge(int age) {
+    if (age >= 0) this->age = age;
 }

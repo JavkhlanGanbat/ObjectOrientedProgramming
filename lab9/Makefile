@@ -1,21 +1,30 @@
+# Compiler and Flags
 CXX = g++
-CXXFLAGS = -std=c++11 -Wall -Wextra
+CXXFLAGS = -std=c++17 -Wall -Iheaders
 
-TARGET = program
+# Directories
+SRC_DIR = def
+OBJ_DIR = obj
+BIN_DIR = bin
 
-SRCS = main.cpp Person.cpp Spouse.cpp Child.cpp Division.cpp JobDescription.cpp Employee.cpp
+# Source and Object Files
+SOURCES = $(wildcard $(SRC_DIR)/*.cpp) main.cpp
+OBJECTS = $(SOURCES:%.cpp=$(OBJ_DIR)/%.o)
+EXECUTABLE = $(BIN_DIR)/main
 
-OBJS = $(SRCS:.cpp=.o)
+# Rules
+all: $(EXECUTABLE)
 
-all: $(TARGET)
+# Link all object files into the final executable
+$(EXECUTABLE): $(OBJECTS)
+	mkdir -p $(BIN_DIR)
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
-$(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
-
-%.o: %.cpp
+# Compile each source file into an object file
+$(OBJ_DIR)/%.o: %.cpp
+	mkdir -p $(dir $@)  # Create necessary subdirectories under obj/
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
+# Clean the build
 clean:
-	rm -f $(OBJS) $(TARGET)
-
-rebuild: clean all
+	rm -rf $(OBJ_DIR) $(BIN_DIR)

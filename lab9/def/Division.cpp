@@ -1,10 +1,14 @@
-// Division.cpp
-#include "../headers/Division.h"
+#include "../headers/Division.hpp"
 
-string Division::getDivisionName() const {
-    return divisionName;
-}
+Division::Division(const string& divname) : divname(divname) {}
 
-void Division::setDivisionName(string divisionName) {
-    this->divisionName = divisionName;
+Division::Division(const Division& division) : divname(division.divname) {}
+
+string Division::getDivisionName() const { return divname; }
+
+void Division::setDivisionName(const string& divname) { this->divname = divname; }
+
+Division Division::operator=(const Division& other) {
+    setDivisionName(other.divname);
+    return *this;
 }

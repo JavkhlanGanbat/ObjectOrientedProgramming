@@ -1,10 +1,15 @@
-// Jobdescription.cpp
-#include "../headers/JobDescription.h"
+#include "../headers/JobDescription.hpp"
 
-string Jobdescription::getDescription() const {
-    return Description;
-}
+JobDescription::JobDescription(const string& description) : description(description) {}
 
-void Jobdescription::setDescription(string Description) {
-    this->Description = Description;
+JobDescription::JobDescription(const JobDescription& jobDescription) 
+    : description(jobDescription.description) {}
+
+string JobDescription::getDescription() const { return description; }
+
+void JobDescription::setDescription(const string& description) { this->description = description; }
+
+JobDescription JobDescription::operator=(const JobDescription& other) {
+    setDescription(other.description);
+    return *this;
 }
