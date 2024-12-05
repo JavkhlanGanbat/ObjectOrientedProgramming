@@ -27,8 +27,27 @@ void Employee::addChild(const Child& child) {
     children.push_back(child);
 }
 
+void Employee::deleteChild(int i) {
+    if (i >= 0 && i < (int)(children.size())) {
+        children.erase(children.begin() + i - 1);
+    } else {
+        throw out_of_range("Index out of range for children.");
+    }
+}
+
 void Employee::addJobDescription(const JobDescription& jobDescription) {
     jobDesc.push_back(jobDescription);
+}
+void Employee::deleteJobDescription(int i) {
+    if (jobDesc.size() > 1) {
+        if (i >= 0 && i < (int)(jobDesc.size())) {
+            jobDesc.erase(jobDesc.begin() + i - 1);
+        } else {
+            throw out_of_range("Index out of range for job descriptions.");
+        }
+    } else {
+        throw logic_error("Employee must have at least one Job Description.");
+    }
 }
 
 void Employee::display() const {

@@ -1,9 +1,3 @@
-#include "headers/Date.hpp"
-#include "headers/Person.hpp"
-#include "headers/Spouse.hpp"
-#include "headers/Child.hpp"
-#include "headers/Division.hpp"
-#include "headers/JobDescription.hpp"
 #include "headers/Employee.hpp"
 
 #include <iostream>
@@ -29,6 +23,11 @@ int main() {
 
     employee.display();
 
+    employee.deleteSpouse();
+    employee.deleteJobDescription(1);
+    employee.deleteChild(1);
+
+    employee.display();
     return 0;
 }
 

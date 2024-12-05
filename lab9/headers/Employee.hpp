@@ -41,13 +41,15 @@ public:
     void setTitle(const string& title);
     void setStartDate(const Date& startDate);
     void setSpouse(const Spouse& spouse);
-
-    // Delete spouse
+    
     void deleteSpouse();
 
     // Add child and job description
     void addChild(const Child& child);
+    void deleteChild(int i);
+
     void addJobDescription(const JobDescription& jobDescription);
+    void deleteJobDescription(int i);
 
     // Display information
     void display() const;
