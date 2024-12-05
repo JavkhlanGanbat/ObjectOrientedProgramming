@@ -44,7 +44,7 @@ public:
     
     void deleteSpouse();
 
-    // Add child and job description
+    // Add and delete child and job description
     void addChild(const Child& child);
     void deleteChild(int i);
 

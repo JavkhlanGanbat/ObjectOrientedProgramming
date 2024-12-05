@@ -16,14 +16,3 @@ void Spouse::setAnniversaryDate(const Date& anniversaryDate) {
 string Spouse::getAnniversaryDate() const {
     return anniversaryDate.getFormattedDate();
 }
-
-Spouse& Spouse::operator=(const Spouse& other) {
-    if (this != &other) {
-        setName(other.getName());
-        setAge(other.getAge());
-        setSSNum(other.getSSNum());
-        setAnniversaryDate(other.anniversaryDate);
-    }
-    
-    return *this;
-}

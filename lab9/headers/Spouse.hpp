@@ -14,7 +14,5 @@ public:
 
     void setAnniversaryDate(const Date& anniversaryDate);
     string getAnniversaryDate() const;
-
-    Spouse& operator=(const Spouse& other);
 };
 

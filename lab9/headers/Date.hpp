@@ -11,14 +11,18 @@ private:
     int day;
 
 public:
+    // baiguulagch functsuud, huulagch
     Date();
     Date(int day, int month, int year);
     Date(const Date& date);
     Date(const string& date);
 
     void setDate(int day, int month, int year);
+
+    // d/m/y format ruu shiljuuleh
     string getFormattedDate() const;
 
+    // getter, setter
     int getYear() const;
     int getMonth() const;
     int getDay() const;

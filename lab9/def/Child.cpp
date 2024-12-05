@@ -12,11 +12,3 @@ Child::Child(const Child& child)
 string Child::getFavoriteToy() const { return favtoy; }
 
 void Child::setFavoriteToy(const string& favtoy) { this->favtoy = favtoy; }
-
-Child& Child::operator=(const Child& other) {
-    setName(other.getName());
-    setAge(other.getAge());
-    setSSNum(other.getSSNum());
-    setFavoriteToy(other.favtoy);
-    return *this;
-}

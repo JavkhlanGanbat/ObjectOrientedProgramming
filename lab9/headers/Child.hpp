@@ -9,12 +9,14 @@ private:
     string favtoy;
 
 public:
+    // garaanii baiguulagch
     Child();
-    Child(const string& name, const string& SSNum, int age, const string& favtoy);
-    Child(const Child& child);
+    // parametrtei baiguulagch
+    Child(const string& name, const string& SSNum, int age, const string& favtoy); 
+    // huulagch baiguulagch
+    Child(const Child& child); 
 
+    //getter, setter
     string getFavoriteToy() const;
     void setFavoriteToy(const string& favtoy);
-
-    Child& operator=(const Child& other);
 };

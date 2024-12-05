@@ -13,7 +13,5 @@ public:
 
     string getDivisionName() const;
     void setDivisionName(const string& divname);
-
-    Division& operator=(const Division& other);
 };
 

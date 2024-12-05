@@ -8,7 +8,3 @@ string Division::getDivisionName() const { return divname; }
 
 void Division::setDivisionName(const string& divname) { this->divname = divname; }
 
-Division& Division::operator=(const Division& other) {
-    setDivisionName(other.divname);
-    return *this;
-}
