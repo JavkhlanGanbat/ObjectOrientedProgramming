@@ -17,7 +17,7 @@ template <typename T>
 class LinkedList {
 private:
     Node<T>* head;
-    int count;
+    int len;
 
 public:
     LinkedList();

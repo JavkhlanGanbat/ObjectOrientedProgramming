@@ -2,7 +2,7 @@
 #include "shapes.hpp"
 
 template <typename T>
-LinkedList<T>::LinkedList() : head(nullptr), count(0) {}
+LinkedList<T>::LinkedList() : head(nullptr), len(0) {}
 
 template <typename T>
 LinkedList<T>::~LinkedList() {
@@ -25,13 +25,13 @@ void LinkedList<T>::add(T* shape) {
         }
         temp->next = newNode;
     }
-    count++;
+    len++;
 }
 
 template <typename T>
 void LinkedList<T>::insert(T* shape, int index) {
-    if (index < 0 || index > count) {
-        cout << "Invalid index!" << endl;
+    if (index < 0 || index > len) {
+        cout << "No." << endl;
         return;
     }
 
@@ -48,13 +48,13 @@ void LinkedList<T>::insert(T* shape, int index) {
         newNode->next = temp->next;
         temp->next = newNode;
     }
-    count++;
+    len++;
 }
 
 template <typename T>
 T* LinkedList<T>::get(int index) {
-    if (index < 0 || index >= count) {
-        cout << "Invalid index!" << endl;
+    if (index < 0 || index >= len) {
+        cout << "No." << endl;
         return nullptr;
     }
 
@@ -67,8 +67,8 @@ T* LinkedList<T>::get(int index) {
 
 template <typename T>
 void LinkedList<T>::remove(int index) {
-    if (index < 0 || index >= count) {
-        cout << "Invalid index!" << endl;
+    if (index < 0 || index >= len) {
+        cout << "No." << endl;
         return;
     }
 
@@ -86,20 +86,21 @@ void LinkedList<T>::remove(int index) {
         prev->next = temp->next;
         delete temp;
     }
-    count--;
+    len--;
 }
 
 template <typename T>
 int LinkedList<T>::length() {
-    return count;
+    return len;
 }
 
 template <typename T>
 void LinkedList<T>::display() const {
     Node<T>* temp = head;
     int index = 0;
+    cout << "\n";
     while (temp) {
-        cout << "Index " << index << " -> Shape: " << temp->data->getName() 
+        cout << index << " -> Shape: " << temp->data->getName() 
              << ", Area: " << temp->data->getArea()
              << ", Perimeter: " << temp->data->getPerimeter() << endl;
         temp = temp->next;

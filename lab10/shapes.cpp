@@ -47,9 +47,7 @@ void TwoDShape::setSideLength(double sideLength){
 } 
  
 //Circle 
-Circle::Circle(double radius): 
-TwoDShape(radius), Shape("Circle"){ 
-} 
+Circle::Circle(double radius) : Shape("Circle"), TwoDShape(radius) {} 
  
 double Circle::getRadius(){ 
     return sideLength; 
@@ -71,9 +69,7 @@ const char* Circle::getShapeName(){
 } 
  
 //Square 
-Square::Square(double sideLength) : 
-TwoDShape(sideLength), Shape("Square"){ 
-} 
+Square::Square(double sideLength) : Shape("Square"), TwoDShape(sideLength) {}
  
 double Square::getSideLength() { 
     return sideLength; 
@@ -96,9 +92,7 @@ const char* Square::getShapeName() {
 } 
  
 //Perfect triangle 
-Triangle::Triangle(double sideLength) : 
-TwoDShape(sideLength), Shape("Triangle"){ 
-}
+Triangle::Triangle(double sideLength) : Shape("Triangle"), TwoDShape(sideLength) {}
  
 double Triangle::getSideLength() { 
     return sideLength; 
