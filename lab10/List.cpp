@@ -1,5 +1,7 @@
 #include "List.hpp"
 #include "shapes.hpp"
+#include <iostream>
+using namespace std;
 
 template <typename T>
 LinkedList<T>::LinkedList() : head(nullptr), len(0) {}

@@ -1,11 +1,4 @@
-#pragma once
-
-#include <iostream>
-#include <vector>
-#include <math.h> 
-#include <cstring> 
-
-using namespace std; 
+#pragma once 
 
 class Shape {
     protected:

@@ -1,4 +1,8 @@
 #include "shapes.hpp"
+#include <iostream>
+#include <vector>
+#include <math.h> 
+#include <cstring> 
 
 Shape::Shape(const char* name) {
     setName(name);
