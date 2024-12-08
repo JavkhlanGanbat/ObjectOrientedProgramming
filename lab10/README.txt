@@ -1,0 +1,1 @@
+"lab10" folder deer "make" --> "./lab10" gej bicheed ajilluulna
