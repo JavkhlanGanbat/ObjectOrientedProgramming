@@ -42,7 +42,7 @@ int main() {
             cout << "Shape type? (1: Circle, 2: Square, 3: Triangle): ";
             int type;
             cin >> type;
-            cout << "Size? (e.g., radius or side length): ";
+            cout << "Size? (radius or side length): ";
             double size;
             cin >> size;
 
@@ -67,7 +67,7 @@ int main() {
             if (type == 1) shapes.insert(new Circle(size), index);
             else if (type == 2) shapes.insert(new Square(size), index);
             else if (type == 3) shapes.insert(new Triangle(size), index);
-            else cout << "No shape of that type" << endl;
+            else cout << "No such type" << endl;
             break;
         }
 
