@@ -13,17 +13,17 @@ public:
 
 template <typename T>
 
-class LinkedList {
+class List {
 private:
     Node<T>* head;
     int len;
 
 public:
-    LinkedList();
-    ~LinkedList();
+    List();
+    ~List();
 
-    void add(T* shape);
-    void insert(T* shape, int index);
+    void add(T* obj);
+    void insert(T* obj, int index);
     T* get(int index);
     void remove(int index);
     int length();

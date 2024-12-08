@@ -4,110 +4,110 @@
 using namespace std;
 
 template <typename T>
-LinkedList<T>::LinkedList() : head(nullptr), len(0) {}
+List<T>::List() : head(nullptr), len(0) {}
 
 template <typename T>
-LinkedList<T>::~LinkedList() {
+List<T>::~List() {
     while (head) {
-        Node<T>* temp = head;
+        Node<T>* tmp = head;
         head = head->next;
-        delete temp;
+        delete tmp;
     }
 }
 
 template <typename T>
-void LinkedList<T>::add(T* shape) {
-    Node<T>* newNode = new Node<T>(shape);
+void List<T>::add(T* obj) {
+    Node<T>* newNd = new Node<T>(obj);
     if (!head) {
-        head = newNode;
+        head = newNd;
     } else {
-        Node<T>* temp = head;
-        while (temp->next) {
-            temp = temp->next;
+        Node<T>* tmp = head;
+        while (tmp->next) {
+            tmp = tmp->next;
         }
-        temp->next = newNode;
+        tmp->next = newNd;
     }
     len++;
 }
 
 template <typename T>
-void LinkedList<T>::insert(T* shape, int index) {
+void List<T>::insert(T* obj, int index) {
     if (index < 0 || index > len) {
         cout << "No." << endl;
         return;
     }
 
-    Node<T>* newNode = new Node<T>(shape);
+    Node<T>* newNd = new Node<T>(obj);
 
     if (index == 0) {
-        newNode->next = head;
-        head = newNode;
+        newNd->next = head;
+        head = newNd;
     } else {
-        Node<T>* temp = head;
+        Node<T>* tmp = head;
         for (int i = 0; i < index - 1; i++) {
-            temp = temp->next;
+            tmp = tmp->next;
         }
-        newNode->next = temp->next;
-        temp->next = newNode;
+        newNd->next = tmp->next;
+        tmp->next = newNd;
     }
     len++;
 }
 
 template <typename T>
-T* LinkedList<T>::get(int index) {
+T* List<T>::get(int index) {
     if (index < 0 || index >= len) {
         cout << "No." << endl;
         return nullptr;
     }
 
-    Node<T>* temp = head;
+    Node<T>* tmp = head;
     for (int i = 0; i < index; i++) {
-        temp = temp->next;
+        tmp = tmp->next;
     }
-    return temp->data;
+    return tmp->data;
 }
 
 template <typename T>
-void LinkedList<T>::remove(int index) {
+void List<T>::remove(int index) {
     if (index < 0 || index >= len) {
         cout << "No." << endl;
         return;
     }
 
-    Node<T>* temp = head;
+    Node<T>* tmp = head;
 
     if (index == 0) {
         head = head->next;
-        delete temp;
+        delete tmp;
     } else {
         Node<T>* prev = nullptr;
         for (int i = 0; i < index; i++) {
-            prev = temp;
-            temp = temp->next;
+            prev = tmp;
+            tmp = tmp->next;
         }
-        prev->next = temp->next;
-        delete temp;
+        prev->next = tmp->next;
+        delete tmp;
     }
     len--;
 }
 
 template <typename T>
-int LinkedList<T>::length() {
+int List<T>::length() {
     return len;
 }
 
 template <typename T>
-void LinkedList<T>::display() const {
-    Node<T>* temp = head;
+void List<T>::display() const {
+    Node<T>* tmp = head;
     int index = 0;
     cout << "\n";
-    while (temp) {
-        cout << index << " -> Shape: " << temp->data->getName() 
-             << ", Area: " << temp->data->getArea()
-             << ", Perimeter: " << temp->data->getPerimeter() << endl;
-        temp = temp->next;
+    while (tmp) {
+        cout << index << " -> Shape: " << tmp->data->getName() 
+             << ", Area: " << tmp->data->getArea()
+             << ", Perimeter: " << tmp->data->getPerimeter() << endl;
+        tmp = tmp->next;
         index++;
     }
 }
 
-template class LinkedList<TwoDShape>;
+template class List<TwoDShape>;

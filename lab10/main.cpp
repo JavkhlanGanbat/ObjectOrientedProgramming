@@ -4,7 +4,7 @@
 using namespace std;
 
 void menu() {
-    cout << "\n" << "1. Display all shapes" << endl; // buh shapeiig haruulna
+    cout << "\n" << "1. Print objects" << endl; // buh shapeiig haruulna
     cout << "2. Push object to the back (end of list)" << endl; // jagsaalt deer push_back uildliig hiine
     cout << "3. Insert object" << endl; // todorhoi index deer objectiig oruulna
     cout << "4. Get info of object" << endl; // index deer objectiin medeelliig haruulna
@@ -15,7 +15,7 @@ void menu() {
 }
 
 int main() {
-    LinkedList<TwoDShape> shapes;
+    List<TwoDShape> shapes;
 
     for (int i = 1; i <= 3; i++) {
         shapes.add(new Circle(i));
@@ -79,9 +79,9 @@ int main() {
             TwoDShape* shape = shapes.get(index);
             if (shape) {
                 cout << "Shape: " << shape->getName()
-                     << ", Side length: " << shape->getSideLength()
-                     << ", Area: " << shape->getArea()
-                     << ", Perimeter: " << shape->getPerimeter() << endl;
+                     << ", L/R: " << shape->getSideLength()
+                     << ", A: " << shape->getArea()
+                     << ", P: " << shape->getPerimeter() << endl;
             }
             break;
         }
