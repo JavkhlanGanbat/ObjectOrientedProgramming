@@ -1,6 +1,7 @@
 #include "List.hpp"
 #include "shapes.hpp"
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 template <typename T>
@@ -33,7 +34,7 @@ void List<T>::add(T* obj) {
 template <typename T>
 void List<T>::insert(T* obj, int index) {
     if (index < 0 || index > len) {
-        cout << "No." << endl;
+        cout << "No." << "\n";
         return;
     }
 
@@ -56,7 +57,7 @@ void List<T>::insert(T* obj, int index) {
 template <typename T>
 T* List<T>::get(int index) {
     if (index < 0 || index >= len) {
-        cout << "No." << endl;
+        cout << "No." << "\n";
         return nullptr;
     }
 
@@ -70,7 +71,7 @@ T* List<T>::get(int index) {
 template <typename T>
 void List<T>::remove(int index) {
     if (index < 0 || index >= len) {
-        cout << "No." << endl;
+        cout << "No." << "\n";
         return;
     }
 
@@ -98,13 +99,25 @@ int List<T>::length() {
 
 template <typename T>
 void List<T>::display() const {
+    if (len == 0) {
+        cout << "The list is empty." << "\n";
+        return;
+    }
+
+    cout << "\n" 
+         << left << setw(10) << "Index" 
+         << left << setw(15) << "Shape" 
+         << left << setw(15) << "A" 
+         << "P" << "\n" << "\n";
+
     Node<T>* tmp = head;
     int index = 0;
-    cout << "\n";
     while (tmp) {
-        cout << index << " -> Shape: " << tmp->data->getName() 
-             << ", Area: " << tmp->data->getArea()
-             << ", Perimeter: " << tmp->data->getPerimeter() << endl;
+        cout << left << setw(10) << index 
+             << left << setw(15) << tmp->data->getName() 
+             << left << setw(15) << fixed << setprecision(2) << tmp->data->getArea() 
+             << tmp->data->getPerimeter() << "\n";
+        
         tmp = tmp->next;
         index++;
     }
