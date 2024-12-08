@@ -1,6 +1,6 @@
 #pragma once 
 
-class Shape {
+class Shape{
     protected:
         char* name;
     public:
@@ -33,7 +33,7 @@ class Circle : public TwoDShape{
         const char* getShapeName();
 };
  
-class Square : public TwoDShape { 
+class Square : public TwoDShape{ 
     public:
         Square(double sideLength = 0);
         double getSideLength();
@@ -44,7 +44,7 @@ class Square : public TwoDShape {
 
 }; 
  
-class Triangle : public TwoDShape {
+class Triangle : public TwoDShape{
     public:
         Triangle(double sideLength = 0);
         double getSideLength();

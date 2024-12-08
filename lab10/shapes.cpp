@@ -4,26 +4,26 @@
 #include <math.h> 
 #include <cstring> 
 
-Shape::Shape(const char* name) {
+Shape::Shape(const char* name){
     setName(name);
 }
 
-Shape::Shape(const Shape& other) {
+Shape::Shape(const Shape& other){
     setName(other.name);
 }
 
-Shape& Shape::operator=(const Shape& other) {
-    if (this != &other) {
+Shape& Shape::operator=(const Shape& other){
+    if (this != &other){
         setName(other.name);
     }
     return *this;
 }
 
-Shape::~Shape() {
+Shape::~Shape(){
     delete[] name;
 }
 
-void Shape::setName(const char* name) { 
+void Shape::setName(const char* name){ 
     char* newName = new char[strlen(name) + 1]; 
     strcpy(newName, name); 
     delete[] this->name;
@@ -31,7 +31,7 @@ void Shape::setName(const char* name) {
     newName = nullptr;
 } 
 
-const char* Shape::getName() {
+const char* Shape::getName(){
     return name; 
 } 
  
@@ -51,7 +51,7 @@ void TwoDShape::setSideLength(double sideLength){
 } 
  
 //Circle 
-Circle::Circle(double radius) : Shape("Circle"), TwoDShape(radius) {} 
+Circle::Circle(double radius) : Shape("Circle"), TwoDShape(radius){} 
  
 double Circle::getRadius(){ 
     return sideLength; 
@@ -71,51 +71,51 @@ const char* Circle::getShapeName(){
 } 
  
 //Square 
-Square::Square(double sideLength) : Shape("Square"), TwoDShape(sideLength) {}
+Square::Square(double sideLength) : Shape("Square"), TwoDShape(sideLength){}
  
-double Square::getSideLength() { 
+double Square::getSideLength(){ 
     return sideLength; 
 } 
  
-void Square::setSideLength(double sideLength) { 
+void Square::setSideLength(double sideLength){ 
     this->sideLength = sideLength; 
 } 
  
-double Square::getArea() { 
+double Square::getArea(){ 
     return sideLength * sideLength; 
 } 
  
-double Square::getPerimeter() { 
+double Square::getPerimeter(){ 
     return 4 * sideLength; 
 } 
  
-const char* Square::getShapeName() { 
+const char* Square::getShapeName(){ 
     return getName(); 
 } 
  
 //Perfect triangle 
-Triangle::Triangle(double sideLength) : Shape("Triangle"), TwoDShape(sideLength) {}
+Triangle::Triangle(double sideLength) : Shape("Triangle"), TwoDShape(sideLength){}
  
-double Triangle::getSideLength() { 
+double Triangle::getSideLength(){ 
     return sideLength; 
 } 
  
-void Triangle::setSideLength(double sideLength) { 
+void Triangle::setSideLength(double sideLength){ 
     this->sideLength = sideLength; 
 } 
  
-double Triangle::getArea() { 
+double Triangle::getArea(){ 
     return (sideLength * calculateHeight()) / 2; 
 } 
  
-double Triangle::getPerimeter() { 
+double Triangle::getPerimeter(){ 
     return 3 * sideLength; 
 } 
  
-const char* Triangle::getShapeName() { 
+const char* Triangle::getShapeName(){ 
     return getName(); 
 } 
  
-double Triangle::calculateHeight() { 
+double Triangle::calculateHeight(){ 
     return (sqrt(3) / 2) * sideLength; 
 } 

@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-void menu() {
+void menu(){
     cout << "\n" << "1. Print objects" << endl; // buh shapeiig haruulna
     cout << "2. Push object to the back (end of list)" << endl; // jagsaalt deer push_back uildliig hiine
     cout << "3. Insert object" << endl; // todorhoi index deer objectiig oruulna
@@ -15,31 +15,31 @@ void menu() {
     cout << "Choice ?: ";
 }
 
-int main() {
+int main(){
     List<TwoDShape> shapes;
 
-    for (int i = 1; i <= 10; i++) {
+    for (int i = 1; i <= 10; i++){
         shapes.add(new Circle(i));
         shapes.add(new Square(i));
         shapes.add(new Triangle(i));
     }
 
-    while (true) {
+    while (true){
         menu();
         int choice;
         cin >> choice;
 
-        if (choice == 0) {
+        if (choice == 0){
             cout << "Bye" << endl;
             break;
         }
 
-        switch (choice) {
+        switch (choice){
         case 1:
             shapes.display();
             break;
 
-        case 2: {
+        case 2:{
             cout << "Shape type? (1: Circle, 2: Square, 3: Triangle): ";
             int type;
             cin >> type;
@@ -54,7 +54,7 @@ int main() {
             break;
         }
 
-        case 3: {
+        case 3:{
             cout << "Shape type? (1: Circle, 2: Square, 3: Triangle): ";
             int type;
             cin >> type;
@@ -72,13 +72,13 @@ int main() {
             break;
         }
 
-        case 4: {
+        case 4:{
             cout << "Index?: ";
             int index;
             cin >> index;
 
             TwoDShape* shape = shapes.getInfo(index);
-            if (shape) {
+            if (shape){
                 cout << "Shape: " << shape->getName()
                      << ", L/R: " << shape->getSideLength()
                      << ", A: " << shape->getArea()
@@ -87,7 +87,7 @@ int main() {
             break;
         }
 
-        case 5: {
+        case 5:{
             cout << "Index?: ";
             int index;
             cin >> index;
