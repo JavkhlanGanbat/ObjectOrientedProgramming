@@ -65,9 +65,7 @@ double Circle::getArea(){
 double Circle::getPerimeter(){ 
     return M_PI * 2 * sideLength; 
 } 
-double Circle::getCircumference(){ 
-    return getPerimeter(); 
-} 
+
 const char* Circle::getShapeName(){ 
     return getName(); 
 } 

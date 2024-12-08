@@ -26,34 +26,33 @@ class TwoDShape : virtual public Shape{
 class Circle : public TwoDShape{ 
     public: 
         Circle(double radius = 0); 
-        double getRadius(); 
-        void setRadius(double radius);  
-        double getCircumference(); 
-        double getArea() override; 
-        double getPerimeter() override; 
-        const char* getShapeName(); 
-}; 
+        double getRadius();
+        void setRadius(double radius);
+        double getArea() override;
+        double getPerimeter() override;
+        const char* getShapeName();
+};
  
 class Square : public TwoDShape { 
-    public: 
-        Square(double sideLength = 0); 
-        double getSideLength(); 
-        void setSideLength(double sideLength); 
-        double getArea() override; 
-        double getPerimeter() override; 
-        const char* getShapeName(); 
+    public:
+        Square(double sideLength = 0);
+        double getSideLength();
+        void setSideLength(double sideLength);
+        double getArea() override;
+        double getPerimeter() override;
+        const char* getShapeName();
 
 }; 
  
-class Triangle : public TwoDShape { 
-    public: 
-        Triangle(double sideLength = 0); 
-        double getSideLength(); 
-        void setSideLength(double sideLength); 
-        double getArea() override; 
-        double getPerimeter() override; 
-        const char* getShapeName(); 
-    
+class Triangle : public TwoDShape {
+    public:
+        Triangle(double sideLength = 0);
+        double getSideLength();
+        void setSideLength(double sideLength);
+        double getArea() override;
+        double getPerimeter() override;
+        const char* getShapeName();
+
     private: 
-        double calculateHeight(); 
+        double calculateHeight();
 };
