@@ -55,7 +55,7 @@ void List<T>::insert(T* obj, int index) {
 }
 
 template <typename T>
-T* List<T>::get(int index) {
+T* List<T>::getInfo(int index) {
     if (index < 0 || index >= len) {
         cout << "No." << "\n";
         return nullptr;
@@ -121,6 +121,31 @@ void List<T>::display() const {
         tmp = tmp->next;
         index++;
     }
+}
+
+template <typename T>
+void List<T>::sortByArea() {
+    if (!head || !head->next) return;
+    
+    bool swapped;
+    Node<T>* crnt;
+    Node<T>* last = nullptr;
+    
+    do {
+        swapped = false;
+        crnt = head;
+        
+        while (crnt->next != last) {
+            if (crnt->data->getArea() > crnt->next->data->getArea()) {
+                T* temp = crnt->data;
+                crnt->data = crnt->next->data;
+                crnt->next->data = temp;
+                swapped = true;
+            }
+            crnt = crnt->next;
+        }
+        last = crnt;
+    } while (swapped);
 }
 
 template class List<TwoDShape>;

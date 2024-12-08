@@ -24,8 +24,10 @@ public:
 
     void add(T* obj);
     void insert(T* obj, int index);
-    T* get(int index);
+    T* getInfo(int index);
     void remove(int index);
     int length();
     void display() const;
+    void sortByArea();
 };
+

@@ -10,6 +10,7 @@ void menu() {
     cout << "4. Get info of object" << endl; // index deer objectiin medeelliig haruulna
     cout << "5. Remove object" << endl; // todorhoi index deerh objectiig ustgana
     cout << "6. Get list length" << endl; // listiin urtiig haruulna
+    cout << "7. Sort list by area" << endl; // listiig talbaiar holbogdono
     cout << "0. Exit" << endl; 
     cout << "Choice?: ";
 }
@@ -76,7 +77,7 @@ int main() {
             int index;
             cin >> index;
 
-            TwoDShape* shape = shapes.get(index);
+            TwoDShape* shape = shapes.getInfo(index);
             if (shape) {
                 cout << "Shape: " << shape->getName()
                      << ", L/R: " << shape->getSideLength()
@@ -97,6 +98,11 @@ int main() {
 
         case 6:
             cout << shapes.length() << endl;
+            break;
+        
+        case 7:
+            shapes.sortByArea();
+            cout << "List sorted by area." << endl;
             break;
 
         default:
