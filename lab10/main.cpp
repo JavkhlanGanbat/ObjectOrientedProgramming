@@ -12,13 +12,13 @@ void menu() {
     cout << "6. Get list length" << endl; // listiin urtiig haruulna
     cout << "7. Sort list by area" << endl; // listiig talbaiar holbogdono
     cout << "0. Exit" << endl; 
-    cout << "Choice?: ";
+    cout << "Choice ?: ";
 }
 
 int main() {
     List<TwoDShape> shapes;
 
-    for (int i = 1; i <= 3; i++) {
+    for (int i = 1; i <= 10; i++) {
         shapes.add(new Circle(i));
         shapes.add(new Square(i));
         shapes.add(new Triangle(i));
