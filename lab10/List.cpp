@@ -113,7 +113,7 @@ void List<T>::display() const {
     Node<T>* tmp = head;
     int index = 0;
     while (tmp) {
-        cout << left << setw(10) << index 
+        cout << left << index << setw(8) << " ->" 
              << left << setw(15) << tmp->data->getName() 
              << left << setw(15) << fixed << setprecision(2) << tmp->data->getArea() 
              << tmp->data->getPerimeter() << "\n";
