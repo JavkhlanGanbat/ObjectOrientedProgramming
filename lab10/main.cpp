@@ -43,7 +43,7 @@ int main() {
             cout << "Shape type? (1: Circle, 2: Square, 3: Triangle): ";
             int type;
             cin >> type;
-            cout << "Size? (radius or side length): ";
+            cout << "Size? (radius/side length): ";
             double size;
             cin >> size;
 
@@ -102,7 +102,7 @@ int main() {
         
         case 7:
             shapes.sortByArea();
-            cout << "List sorted by area." << endl;
+            cout << "Done." << endl;
             break;
 
         default:
