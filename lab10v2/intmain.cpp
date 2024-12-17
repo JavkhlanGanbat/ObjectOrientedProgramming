@@ -2,7 +2,7 @@
 using namespace std;
 
 // Jagsaalt dotor baigaa elementuudiig utgaar ni erembeleh functs (zuvhun int turul deer ajillana)
-void sortLinkedList(LinkedList<int>& list) {
+void sortLinkedList(LinkedList<int>& list){
     if (list.length() == 0 || list.length() == 1) return; // hooson, esvel gantshan elementtei jagsaalt
 
     bool swapped;
@@ -13,8 +13,8 @@ void sortLinkedList(LinkedList<int>& list) {
         swapped = false;
         current = list.getHead();
 
-        while (current->next != lastSorted) {
-            if (current->data > current->next->data) {
+        while (current->next != lastSorted){
+            if (current->data > current->next->data){
                 // 2 zangilaanii datag uur hoorond ni solih
                 int temp = current->data;
                 current->data = current->next->data;
@@ -29,9 +29,8 @@ void sortLinkedList(LinkedList<int>& list) {
 
 using namespace std;
 
-void printMenu() {
-    cout << "\nMenu:\n";
-    cout << "1. Add element\n";
+void printMenu(){
+    cout << "\n" << "1. Add element\n";
     cout << "2. Print list\n";
     cout << "3. Insert to list\n";
     cout << "4. Sort list\n";
@@ -41,20 +40,20 @@ void printMenu() {
     cout << "0. Exit\n";
 }
 
-int main() {
+int main(){
     LinkedList<int> list;
     int choice, value, index;
 
-    for (int i = 0; i < 10; ++i) {
+    for (int i = 0; i < 10; ++i){
         list.add(rand() % 100 + 1);
     }
 
-    while (true) {
+    while (true){
         printMenu();
         cout << "Enter your choice: ";
         cin >> choice;
 
-        switch (choice) {
+        switch (choice){
             case 1: // Add element
                 cout << "Enter element to add: ";
                 cin >> value;

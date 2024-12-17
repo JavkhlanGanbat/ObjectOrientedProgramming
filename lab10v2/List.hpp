@@ -9,7 +9,7 @@ struct Node {
     T data;
     Node* next;
 
-    Node(T val) : data(val), next(nullptr) {}
+    Node(T val) : data(val), next(nullptr){}
 };
 
 // zagvar linkedlist class
@@ -20,16 +20,16 @@ private:
     int size; // jagsaaltiin urt
 
 public:
-    LinkedList() : head(nullptr), size(0) {}
+    LinkedList() : head(nullptr), size(0){}
 
     // push_back functs
-    void add(T t) {
+    void add(T t){
         Node<T>* newNode = new Node<T>(t);
-        if (!head) {
+        if (!head){
             head = newNode;
         } else {
             Node<T>* temp = head;
-            while (temp->next) {
+            while (temp->next){
                 temp = temp->next;
             }
             temp->next = newNode;
@@ -38,8 +38,8 @@ public:
     }
 
     // duriin indexd element oruulah functs
-    void insert(int index) {
-        if (index < 0 || index > size) {
+    void insert(int index){
+        if (index < 0 || index > size){
             throw std::out_of_range("Index out of bounds");
         }
 
@@ -49,12 +49,12 @@ public:
 
         Node<T>* newNode = new Node<T>(t);
 
-        if (index == 0) {
+        if (index == 0){
             newNode->next = head;
             head = newNode;
         } else {
             Node<T>* temp = head;
-            for (int i = 0; i < index - 1; ++i) {
+            for (int i = 0; i < index - 1; ++i){
                 temp = temp->next;
             }
             newNode->next = temp->next;
@@ -65,31 +65,31 @@ public:
 
 
     // duriin indexd baigaa elementiin medeelliig avah functs
-    T& get(int index) {
-        if (index < 0 || index >= size) {
+    T& get(int index){
+        if (index < 0 || index >= size){
             throw std::out_of_range("Index out of bounds");  // Use std::out_of_range
         }
 
         Node<T>* temp = head;
-        for (int i = 0; i < index; ++i) {
+        for (int i = 0; i < index; ++i){
             temp = temp->next;
         }
         return temp->data;
     }
 
     // durin indexd baigaa elementiig ustgah functs
-    void deleteNode(int index) {
-        if (index < 0 || index >= size) {
+    void deleteNode(int index){
+        if (index < 0 || index >= size){
             throw std::out_of_range("Index out of bounds");  // Use std::out_of_range
         }
 
         Node<T>* toDelete = nullptr;
-        if (index == 0) {
+        if (index == 0){
             toDelete = head;
             head = head->next;
         } else {
             Node<T>* temp = head;
-            for (int i = 0; i < index - 1; ++i) {
+            for (int i = 0; i < index - 1; ++i){
                 temp = temp->next;
             }
             toDelete = temp->next;
@@ -107,7 +107,7 @@ public:
     // jagsaaltiig hevleh functs
     void print() const {
         Node<T>* temp = head;
-        while (temp) {
+        while (temp){
             std::cout << temp->data << " -> ";
             temp = temp->next;
         }
@@ -120,7 +120,7 @@ public:
     }
 
     // jagsaaltiin ehnii element (head)-g todorhoiloh functs
-    void setHead(Node<T>* newHead) {
+    void setHead(Node<T>* newHead){
         head = newHead;
     }
 };
