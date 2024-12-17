@@ -1,17 +1,13 @@
-#include <iostream>
-#include <stdexcept>
 #include "List.hpp"
-#include "shapes.hpp"
 using namespace std;
 
-// Standalone function to sort the linked list using bubble sort
-template <typename T>
-void sortLinkedList(LinkedList<T>& list) {
-    if (list.length() == 0 || list.length() == 1) return; // Empty or single-node list
+// Jagsaalt dotor baigaa elementuudiig utgaar ni erembeleh functs (zuvhun int turul deer ajillana)
+void sortLinkedList(LinkedList<int>& list) {
+    if (list.length() == 0 || list.length() == 1) return; // hooson, esvel gantshan elementtei jagsaalt
 
     bool swapped;
-    Node<T>* current;
-    Node<T>* lastSorted = nullptr;
+    Node<int>* current;
+    Node<int>* lastSorted = nullptr;
 
     do {
         swapped = false;
@@ -19,19 +15,18 @@ void sortLinkedList(LinkedList<T>& list) {
 
         while (current->next != lastSorted) {
             if (current->data > current->next->data) {
-                // Swap the data of adjacent nodes
-                T temp = current->data;
+                // 2 zangilaanii datag uur hoorond ni solih
+                int temp = current->data;
                 current->data = current->next->data;
                 current->next->data = temp;
                 swapped = true;
             }
             current = current->next;
         }
-        lastSorted = current; // Mark the last sorted node
+        lastSorted = current; // erembelegdsen suuliin zangilaag temdegleh
     } while (swapped);
 }
 
-// Example usage
 int main() {
     LinkedList<int> list;
 

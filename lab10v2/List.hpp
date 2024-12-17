@@ -3,7 +3,6 @@
 #include <stdexcept>
 #include "shapes.hpp"
 
-using namespace std;
 // zangilaa struct
 template <typename T>
 struct Node {
