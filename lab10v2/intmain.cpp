@@ -27,34 +27,79 @@ void sortLinkedList(LinkedList<int>& list) {
     } while (swapped);
 }
 
+using namespace std;
+
+void printMenu() {
+    cout << "\nMenu:\n";
+    cout << "1. Add element\n";
+    cout << "2. Print list\n";
+    cout << "3. Insert to list\n";
+    cout << "4. Sort list\n";
+    cout << "5. Get element at index\n";
+    cout << "6. Delete element at index\n";
+    cout << "7. Get length of list\n";
+    cout << "0. Exit\n";
+}
+
 int main() {
     LinkedList<int> list;
+    int choice, value, index;
 
-    list.add(30);
-    list.add(10);
-    list.add(50);
-    list.add(20);
-    list.add(40);
-    list.add(5);
+    for (int i = 0; i < 10; ++i) {
+        list.add(rand() % 100 + 1);
+    }
 
-    cout << "Original list: \n";
-    list.print();
+    while (true) {
+        printMenu();
+        cout << "Enter your choice: ";
+        cin >> choice;
 
-    sortLinkedList(list);
+        switch (choice) {
+            case 1: // Add element
+                cout << "Enter element to add: ";
+                cin >> value;
+                list.add(value);
+                cout << "Element added.\n";
+                break;
 
-    cout << "Sorted list: \n";
-    list.print();
+            case 2: // Print list
+                cout << "List: \n";
+                list.print();
+                break;
+            case 3: // Insert to list
+                cout << "Enter index: ";
+                cin >> index;
+                list.insert(index);
+                break;
 
-    cout << "Element at index 2: " << list.get(2) << endl;
+            case 4: // Sort list
+                sortLinkedList(list);
+                cout << "List sorted.\n";
+                break;
 
-    list.deleteNode(2);
-    list.deleteNode(4);
-    cout << "After deleting element at index 2, 5: \n";
-    list.print();
+            case 5: // Get element at index
+                cout << "Enter index: ";
+                cin >> index;
+                cout << "Element at index " << index << ": " << list.get(index) << endl;
+                break;
 
-    cout << "Info of node at index 3: " << list.get(3) << endl;
+            case 6: // Delete element at index
+                cout << "Enter index to delete: ";
+                cin >> index;
+                list.deleteNode(index);
+                cout << "Element deleted.\n";
+                break;
 
-    cout << "Length: " << list.length() << endl;
+            case 7: // Get length of list
+                cout << "Length of list: " << list.length() << endl;
+                break;
 
-    return 0;
-};
+            case 0: // Exit
+                cout << "Exiting program.\n";
+                return 0;
+
+            default:
+                cout << "Invalid choice. Please try again.\n";
+        }
+    }
+}

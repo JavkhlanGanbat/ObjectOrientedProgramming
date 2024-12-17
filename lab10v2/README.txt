@@ -1,6 +1,6 @@
 Jagsaaltiig shape turul deer ajilluulah:
 
-g++ -o lab10 shapemain.cpp shapes.cpp shapemain.cpp
+g++ -o shapemain shapemain.cpp shapes.cpp shapemain.cpp
 
 
 Jagsaaltiig int turul deer ajilluulah: 

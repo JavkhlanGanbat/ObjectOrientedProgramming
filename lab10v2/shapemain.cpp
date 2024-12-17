@@ -5,7 +5,6 @@
 #include <ctime> 
 using namespace std;
 
-
 // Display function (for reference, already provided)
 template <typename T>
 void display(LinkedList<T>& list) {
@@ -86,8 +85,13 @@ int main() {
     cout << "\nSorted list (area):\n";
     display(shapes);
 
-    cout << "Info of node at index 3: " << shapes.get(3) << endl;
+    cout << "Jagsaaltiin tugsguld rad = 5 Circle objectiig nemj baina " << endl;
+    shapes.add(new Circle(5));
+    display(shapes);
 
+    cout << "Jagsaaltiin ehnii elementiig ustgaj baina " << endl;
+    shapes.deleteNode(0);
+    display(shapes);
     return 0;
 }
 

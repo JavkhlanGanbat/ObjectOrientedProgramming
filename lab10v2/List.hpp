@@ -38,12 +38,17 @@ public:
     }
 
     // duriin indexd element oruulah functs
-    void insert(T t, int index) {
+    void insert(int index) {
         if (index < 0 || index > size) {
-            throw out_of_range("Index out of bounds");
+            throw std::out_of_range("Index out of bounds");
         }
 
+        T t;
+        std::cout << "Enter the value to insert: ";
+        std::cin >> t;
+
         Node<T>* newNode = new Node<T>(t);
+
         if (index == 0) {
             newNode->next = head;
             head = newNode;
@@ -58,10 +63,11 @@ public:
         size++;
     }
 
+
     // duriin indexd baigaa elementiin medeelliig avah functs
     T& get(int index) {
         if (index < 0 || index >= size) {
-            throw out_of_range("Index out of bounds");
+            throw std::out_of_range("Index out of bounds");  // Use std::out_of_range
         }
 
         Node<T>* temp = head;
@@ -74,7 +80,7 @@ public:
     // durin indexd baigaa elementiig ustgah functs
     void deleteNode(int index) {
         if (index < 0 || index >= size) {
-            throw out_of_range("Index out of bounds");
+            throw std::out_of_range("Index out of bounds");  // Use std::out_of_range
         }
 
         Node<T>* toDelete = nullptr;
@@ -102,11 +108,12 @@ public:
     void print() const {
         Node<T>* temp = head;
         while (temp) {
-            cout << temp->data << " -> ";
+            std::cout << temp->data << " -> ";
             temp = temp->next;
         }
-        cout << "NULL\n";
+        std::cout << "NULL\n";
     }
+
     // jagsaaltiin ehnii element (head)-g avah functs
     Node<T>* getHead() const {
         return head;
