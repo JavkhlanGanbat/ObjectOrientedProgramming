@@ -9,7 +9,7 @@ using namespace std;
 template <typename T>
 void display(List<T>& list){
     if (list.length() == 0){ 
-        cout << "The list is empty.\n";
+        cout << "This ***** empty.\n";
         return;
     }
 
@@ -77,12 +77,12 @@ int main(){
         }
     }
 
-    cout << "Original list:\n";
+    cout << "Jagsaalt:\n";
     display(shapes);
 
     sortByArea(shapes);
 
-    cout << "\nSorted list (area):\n";
+    cout << "\nTalbaigaar ni usuhuur erembelsnii daraa ni:\n";
     display(shapes);
 
     cout << "Jagsaaltiin tugsguld rad = 5 Circle objectiig nemj baina " << endl;

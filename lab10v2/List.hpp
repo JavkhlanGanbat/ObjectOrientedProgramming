@@ -40,11 +40,11 @@ public:
     // duriin indexd element oruulah functs
     void insert(int index){
         if (index < 0 || index > len){
-            throw std::out_of_range("Index out of bounds");
+            throw std::out_of_range("Index heterlee");
         }
 
         T t;
-        std::cout << "Enter the value to insert: ";
+        std::cout << "Oruulah utgaa songono uu: ";
         std::cin >> t;
 
         Node<T>* newNode = new Node<T>(t);
@@ -67,7 +67,7 @@ public:
     // duriin indexd baigaa elementiin medeelliig avah functs
     T& get(int index){
         if (index < 0 || index >= len){
-            throw std::out_of_range("Index out of bounds");  // Use std::out_of_range
+            throw std::out_of_range("Index heterlee");  // Use std::out_of_range
         }
 
         Node<T>* temp = head;
@@ -80,7 +80,7 @@ public:
     // durin indexd baigaa elementiig ustgah functs
     void deleteNode(int index){
         if (index < 0 || index >= len){
-            throw std::out_of_range("Index out of bounds");  // Use std::out_of_range
+            throw std::out_of_range("Stop it. Get some help.");  // Use std::out_of_range
         }
 
         Node<T>* toDelete = nullptr;

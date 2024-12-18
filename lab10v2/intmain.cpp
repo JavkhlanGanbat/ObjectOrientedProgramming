@@ -30,14 +30,14 @@ void sortList(List<int>& list){
 using namespace std;
 
 void printMenu(){
-    cout << "\n" << "1. Add element\n";
-    cout << "2. Print list\n";
-    cout << "3. Insert to list\n";
-    cout << "4. Sort list\n";
-    cout << "5. Get element at index\n";
-    cout << "6. Delete element at index\n";
-    cout << "7. Get length of list\n";
-    cout << "0. Exit\n";
+    cout << "\n" << "1. Push_back\n";
+    cout << "2. Jagsaaltiig hevleh\n";
+    cout << "3. i index deer shine elem oruulah\n";
+    cout << "4. Erembeleh\n";
+    cout << "5. i index deerh elem haruulah\n";
+    cout << "6. i index deerh elem-g ustgah\n";
+    cout << "7. Jagsaaltiin urtiig avah\n";
+    cout << "0. Garah\n";
 }
 
 int main(){
@@ -50,55 +50,55 @@ int main(){
 
     while (true){
         printMenu();
-        cout << "Enter your choice: ";
+        cout << "Songoltoo oruulna uu: ";
         cin >> choice;
 
         switch (choice){
             case 1: // Add element
-                cout << "Enter element to add: ";
+                cout << "Oruulah utgaa songono uu: ";
                 cin >> value;
                 list.add(value);
-                cout << "Element added.\n";
+                cout << "Jagsaaltiin tugsguld oruullaa.\n";
                 break;
 
             case 2: // Print list
-                cout << "List: \n";
+                cout << "Jagsaalt: \n";
                 list.print();
                 break;
             case 3: // Insert to list
-                cout << "Enter index: ";
+                cout << "Index: ";
                 cin >> index;
                 list.insert(index);
                 break;
 
             case 4: // Sort list
                 sortList(list);
-                cout << "List sorted.\n";
+                cout << "Erembelegdlee.\n";
                 break;
 
             case 5: // Get element at index
-                cout << "Enter index: ";
+                cout << "Index: ";
                 cin >> index;
-                cout << "Element at index " << index << ": " << list.get(index) << endl;
+                cout << index << "-d baigaa element" << ": " << list.get(index) << endl;
                 break;
 
             case 6: // Delete element at index
-                cout << "Enter index to delete: ";
+                cout << "Ali index?: ";
                 cin >> index;
                 list.deleteNode(index);
-                cout << "Element deleted.\n";
+                cout << "Ustgasan.\n";
                 break;
 
             case 7: // Get length of list
-                cout << "Length of list: " << list.length() << endl;
+                cout << "Jagsaaltiin urt: " << list.length() << endl;
                 break;
 
             case 0: // Exit
-                cout << "Exiting program.\n";
+                cout << "Bye\n";
                 return 0;
 
             default:
-                cout << "Invalid choice. Please try again.\n";
+                cout << "No.\n";
         }
     }
 }
