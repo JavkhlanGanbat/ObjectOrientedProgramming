@@ -7,7 +7,7 @@ using namespace std;
 
 // Display function
 template <typename T>
-void display(LinkedList<T>& list){
+void display(List<T>& list){
     if (list.length() == 0){ 
         cout << "The list is empty.\n";
         return;
@@ -34,7 +34,7 @@ void display(LinkedList<T>& list){
 
 // Sorting function
 template <typename T>
-void sortByArea(LinkedList<T>& list){
+void sortByArea(List<T>& list){
     if (!list.getHead() || !list.getHead()->next) return;
 
     bool swapped;
@@ -61,7 +61,7 @@ void sortByArea(LinkedList<T>& list){
 int main(){
     srand(time(0)); // rand num generator
 
-    LinkedList<TwoDShape*> shapes;
+    List<TwoDShape*> shapes;
 
     // 30 random shapes
     for (int i = 0; i < 30; ++i){

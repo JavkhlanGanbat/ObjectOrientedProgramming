@@ -12,15 +12,15 @@ struct Node {
     Node(T val) : data(val), next(nullptr){}
 };
 
-// zagvar linkedlist class
+// zagvar List class
 template <typename T>
-class LinkedList {
+class List {
 private:
     Node<T>* head;
-    int size; // jagsaaltiin urt
+    int len; // jagsaaltiin urt
 
 public:
-    LinkedList() : head(nullptr), size(0){}
+    List() : head(nullptr), len(0){}
 
     // push_back functs
     void add(T t){
@@ -34,12 +34,12 @@ public:
             }
             temp->next = newNode;
         }
-        size++;
+        len++;
     }
 
     // duriin indexd element oruulah functs
     void insert(int index){
-        if (index < 0 || index > size){
+        if (index < 0 || index > len){
             throw std::out_of_range("Index out of bounds");
         }
 
@@ -60,13 +60,13 @@ public:
             newNode->next = temp->next;
             temp->next = newNode;
         }
-        size++;
+        len++;
     }
 
 
     // duriin indexd baigaa elementiin medeelliig avah functs
     T& get(int index){
-        if (index < 0 || index >= size){
+        if (index < 0 || index >= len){
             throw std::out_of_range("Index out of bounds");  // Use std::out_of_range
         }
 
@@ -79,7 +79,7 @@ public:
 
     // durin indexd baigaa elementiig ustgah functs
     void deleteNode(int index){
-        if (index < 0 || index >= size){
+        if (index < 0 || index >= len){
             throw std::out_of_range("Index out of bounds");  // Use std::out_of_range
         }
 
@@ -96,12 +96,12 @@ public:
             temp->next = temp->next->next;
         }
         delete toDelete;
-        size--;
+        len--;
     }
 
     // jagsaaltiin urtiig butsaah functs
     int length() const {
-        return size;
+        return len;
     }
 
     // jagsaaltiig hevleh functs

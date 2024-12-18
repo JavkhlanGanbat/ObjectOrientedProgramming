@@ -2,28 +2,28 @@
 using namespace std;
 
 // Jagsaalt dotor baigaa elementuudiig utgaar ni erembeleh functs (zuvhun int turul deer ajillana)
-void sortLinkedList(LinkedList<int>& list){
+void sortList(List<int>& list){
     if (list.length() == 0 || list.length() == 1) return; // hooson, esvel gantshan elementtei jagsaalt
 
     bool swapped;
-    Node<int>* current;
+    Node<int>* c;
     Node<int>* lastSorted = nullptr;
 
     do {
         swapped = false;
-        current = list.getHead();
+        c = list.getHead();
 
-        while (current->next != lastSorted){
-            if (current->data > current->next->data){
+        while (c->next != lastSorted){
+            if (c->data > c->next->data){
                 // 2 zangilaanii datag uur hoorond ni solih
-                int temp = current->data;
-                current->data = current->next->data;
-                current->next->data = temp;
+                int temp = c->data;
+                c->data = c->next->data;
+                c->next->data = temp;
                 swapped = true;
             }
-            current = current->next;
+            c = c->next;
         }
-        lastSorted = current; // erembelegdsen suuliin zangilaag temdegleh
+        lastSorted = c; // erembelegdsen suuliin zangilaag temdegleh
     } while (swapped);
 }
 
@@ -41,7 +41,7 @@ void printMenu(){
 }
 
 int main(){
-    LinkedList<int> list;
+    List<int> list;
     int choice, value, index;
 
     for (int i = 0; i < 10; ++i){
@@ -72,7 +72,7 @@ int main(){
                 break;
 
             case 4: // Sort list
-                sortLinkedList(list);
+                sortList(list);
                 cout << "List sorted.\n";
                 break;
 
